@@ -1,8 +1,46 @@
-[virt-viewer]
-type=spice
-host=::1
-port=5901
-delete-this-file=1
-fullscreen=0
-
-[...............................GraphicsConsole]
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pàgina en Manteniment</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blueviolet;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            animation: pulse 2s infinite;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚙️ Pàgina en Manteniment</h1>
+        <p>Estem treballant per oferir-te una millor experiència. Tornarem aviat!</p>
+    </div>
+</body>
+</html>
