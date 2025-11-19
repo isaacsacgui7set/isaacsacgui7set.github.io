@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contacte - Isaac Guisset</title>
+
+<link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --color-bg1: #1d1d1d;
+    --color-bg2: #2a0d35;
+    --color-accent: #9b59b6;
+    --color-text: #f5f5f5;
+    --card-border: rgba(155,89,182,0.35);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2));
+    color: var(--color-text);
+  }
+
+ 
+  .page-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 520px;
+    background: rgba(42, 42, 42, 0.95);
+    border: 1px solid var(--card-border);
+    padding: 36px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    text-align: left;
+    backdrop-filter: blur(8px);
+  }
+
+  .card h2 {
+    color: var(--color-accent);
+    margin-bottom: 18px;
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #e7e7e7;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.35);
+    font-size: 1rem;
+    background: linear-gradient(180deg,#3b3b3b,#393939);
+    color: var(--color-text);
+    font-family: 'Orbitron', sans-serif;
+    resize: vertical;
+    transition: box-shadow 0.18s, outline 0.18s, transform 0.12s;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #bdbdbd;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(155,89,182,0.12);
+    transform: translateY(-1px);
+  }
+
+  .row {
+    display: flex;
+    gap: 12px;
+  }
+
+  .actions {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button, .btn-return {
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 24px;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.12s ease, background 0.18s;
+  }
+
+  button:hover, .btn-return:hover {
+    background: #8e44ad;
+    transform: translateY(-3px);
+  }
+
+  .msg {
+    margin-top: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    word-break: break-word;
+  }
+
+  .success { color: #4caf50; }
+  .error   { color: #e74c3c; }
+
+  footer {
+    background: #2a2a2a;
+    text-align: center;
+    padding: 12px 10px;
+    color: #ccc;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(155, 89, 182, 0.3);
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  footer a { color: #9b59b6; text-decoration: none; margin: 0 8px; }
+  footer a:hover { color: #fff; }
+
+  @media (max-width: 700px) {
+    .card { padding: 22px; border-radius: 12px; max-width: 100%; }
+    .card h2 { font-size: 1.35rem; margin-bottom: 12px; text-align: center; }
+    label { font-size: 0.85rem; }
+    input, textarea { font-size: 0.95rem; padding: 10px 12px; }
+    button, .btn-return { font-size: 1rem; padding: 12px; border-radius: 20px; }
+    .row { flex-direction: column; }
+    .page-wrap { padding: 18px 12px; }
+  }
+
+  @media (min-width: 1100px) {
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 999;
+    }
+  }
+
+  a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid rgba(155,89,182,0.16);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+
+<body>
+  <div class="page-wrap">
+    <main class="card" role="main" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contacta amb Isaac Guisset</h2>
+
+      <form id="contactForm" method="POST" action="/contacte/guardar_contacte.php" novalidate>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" required minlength="2" placeholder="El teu nom" />
+
+        <label for="email">Correu electrònic</label>
+        <input type="email" id="email" name="email" required placeholder="exemple@gmail.com" />
+
+        <label for="missatge">Missatge</label>
+        <textarea id="missatge" name="missatge" rows="6" required minlength="10" placeholder="Escriu aquí el teu missatge..."></textarea>
+
+        <div class="actions">
+          <button type="submit" aria-live="polite">Enviar</button>
+          <button type="button" class="btn-return" id="returnBtn" style="display:none;" onclick="window.location.href='https://isaacguisset.cat/'">
+            Tornar a l'inici
+          </button>
+          <div id="responseMsg" class="msg" aria-live="assertive"></div>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Isaac Guisset Sànchez · Tots els drets reservats</p>
+    <p>
+      <a href="mailto:guissetisaac@gmail.com">Contacte</a> |
+      <a href="#top">Tornar amunt ↑</a>
+    </p>
+  </footer>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const responseMsg = document.getElementById('responseMsg');
+  const returnBtn = document.getElementById('returnBtn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    responseMsg.textContent = '';
+    responseMsg.className = 'msg';
+    returnBtn.style.display = 'none';
+
+    if (!form.checkValidity()) {
+      responseMsg.textContent = 'Revisa els camps, n’hi ha algun incomplet o incorrecte.';
+      responseMsg.classList.add('error');
+      return;
+    }
+
+    const formData = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+      });
+
+      let data;
+      try {
+        data = await res.json();
+      } catch (err) {
+        data = { success: res.ok, error: !res.ok ? 'Resposta inesperada del servidor' : undefined };
+      }
+
+      if (data.success) {
+        responseMsg.textContent = 'Missatge enviat correctament!';
+        responseMsg.classList.add('success');
+        form.reset();
+        returnBtn.style.display = 'block';
+      } else {
+        responseMsg.textContent = 'Error: ' + (data.error || 'No s\'ha pogut enviar.');
+        responseMsg.classList.add('error');
+      }
+    } catch (err) {
+      responseMsg.textContent = 'Error de connexió. Torna-ho a provar més tard.';
+      responseMsg.classList.add('error');
+    }
+  });
+</script>
+</body>
+</html>

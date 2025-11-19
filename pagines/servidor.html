@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servidor</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
+<style>
+  :root {
+    --color-bg1: #1d1d1d;
+    --color-bg2: #2a0d35;
+    --color-accent: #9b59b6;
+    --color-text: #f5f5f5;
+  }
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background: var(--color-bg1);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2));
+    padding: 40px 20px;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 3rem;
+    color: var(--color-accent);
+  }
+  header p {
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+  .accordion {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .accordion-item {
+    border-bottom: 1px solid #444;
+  }
+  .accordion-header {
+    padding: 15px;
+    background: #2a2a2a;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accordion-header:hover {
+    background: #3a3a3a;
+  }
+  .accordion-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  .accordion-icon {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #222;
+    transition: max-height 0.4s ease;
+    padding: 0 15px;
+  }
+  .accordion-content.open {
+    padding: 15px;
+  }
+  .accordion-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(155,89,182,0.5);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .accordion-content img:hover {
+    transform: scale(1.05);
+  }
+  .accordion-content p {
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+
+  .accordion-content .image-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .accordion-content .image-row img {
+    max-width: calc(33.33% - 10px);
+  }
+  @media (max-width: 768px) {
+    .accordion-content .image-row img {
+      max-width: calc(50% - 10px);
+    }
+  }
+  @media (max-width: 480px) {
+    .accordion-content .image-row img {
+      max-width: 100%;
+    }
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+  .lightbox.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .btn-inici{
+    margin-left: 0px;
+    background-color: blueviolet;
+    border-radius: 15px;
+    box-shadow: 1px 1px white;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+
+    }
+    .div-inici{
+      text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>EL MEU SERVIDOR</h1>
+</header>
+
+<div class="accordion">
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span class="accordion-title">Els inicis de tot</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>Fa uns mesos vaig fer un projecte en parelles relacionat amb l'ERP Odoo, en aquest projecte haviem de publicar la pàgina web de l'erp per tal de que estigués visible online amb un domini.</p>
+      <p>Volíem anar més enllà de penjar la web en una màquina de tercers; volíem una cosa pròpia, com que en principi només havíem de fer una instal·lació absurdament fàcil i el servidor no necessitava masses recursos, vam decidir utilitzar un portàtil que tenia per casa.</p>
+      <p>Primer vam adquirir el domini a Nominalia (calisfit.shop) i el vam traslladar a cloudflare per gestionar-ho millor i tenir més seguretat.</p>
+	
+	<div class="image-row">
+        <img src="/imatges/servidor/cloudflare.jpeg" alt="Dashboard de cloudflare">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span class="accordion-title">Primer servidor</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>Un cop traslladats els dns a cloudflare, ens quedava instal·lar el sistema operatiu amb odoo17 amb totes les dependències necessàries/pujar la base de dades de la nostre pàgina i per últim dirigir els ports del servidor  necesàris (80 i 443) a la nostre ip pública (que estava configurada per respondre al domini calisfit.shop).<br> Tot funcionava correctament i la nostra pàgina era visible, per a mi era una novetat i tenia moltes ganes de fer més projectes i utilitzar el servidor.</p>
+      <div class="image-row">
+        <img src="/imatges/servidor/servidor.jpeg" alt="ImatgeServidor">
+        <img src="/imatges/servidor/WhatsApp Image 2025-08-16 at 5.35.37 PM.jpeg" alt="Neofetch des de terminal w11">
+        <img src="/imatges/servidor/odoo db.jpeg" alt="Base de dades Odoo17">
+	 <img src="/imatges/servidor/calisfitpagina.png" alt="Pàgina web calisfit">
+
+      </div>
+      <p><em>MSI GT72VR DOMINATOR PRO 6QE</em></p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span class="accordion-title">Estiu i més projectes</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>El curs es va acabar i va començar l’estiu, tenia molt temps lliure per pensar projectes, vaig descobrir un gestor de contingut audiovisual anomenat Jellyfin (Similar a Plex però 100% de codi obert) i vaig decidir instal·lar-ho al meu servidor per veure pel·lícules (més endavant vaig traslladar la web al domini pelis.isaacsac.cat amb ajuda d'una configuració proxy d'apache).</p>
+      <p>A més del treball també vaig publicar la meva pàgina personal que vaig desenvolupar amb HTML + CSS + PHP durant l'últim curs de SMX, el primer projecte individual i molt millorable.</p>
+      <div class="image-row">
+        <img src="/imatges/servidor/login jellyfin.jpeg" alt="login jellyfin">
+        <img src="/imatges/servidor/jellyfin.jpeg" alt="dashboard jellyfin">
+        <img src="/imatges/servidor/Admin jellyfin.jpeg" alt="Panell de control jellyfin">
+        <img src="/imatges/servidor/8.png" alt="Pagina personal versió 1">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span class="accordion-title">El nou servidor</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>Com era d'esperar, el primer servidor (Msi GT72VR) ja no era suficient per els projectes que volia fer. </p>
+	<p>A finals de Juliol vaig adquirir una Dell 5820 amb un Xeon W-2155, 64GB de RAM, un SSD de 512 on instal·laria el sistema operatiu (ubuntu server 24.04) i 4 slots hotswap SATA on posaria 4 discs HDD de 1TB.</p>
+      <p>Per ampliar encara més l’espai,vaig comprar tres adaptadors de NVME per PCIe x18, en aquests slots vaig afegir dos SSD de 500GB i un de 250GB.</p>
+      <p>En aquest servidor controlo la majoria de serveis a través de CasaOS i Cockpit, amb Dockers; si necessito exposar-los a internet ho faig amb el proxy d’Apache.</p>
+      <div class="image-row">
+        <img src="/imatges/servidor/maquinasvirtuales.jpeg" alt="Icon prova 1">
+        <img src="/imatges/servidor/storage.jpeg" alt="Icon prova 2">
+        <img src="/imatges/servidor/xeonw-2155.jpg" alt="Icon prova 2" height="150px" width="150px">
+        <img src="/imatges/servidor/nvidiaquadro.png" alt="Icon prova 2" height="150px" width="150px">
+        <img src="/imatges/servidor/seagate.png" alt="Icon prova 2" >
+        <img src="/imatges/servidor/quadro.jpg" alt="Icon prova 2" >
+        <img src="/imatges/servidor/bahias.avif" alt="Icon prova 2" >
+
+
+     
+
+      </div>
+      <p><em>DELL PRECISION 5820</em></p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span class="accordion-title">Màquines virtuals</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-content">
+	<p>El fet que el processador disposi de 10 nuclis / 20 fils i 64 GB de RAM el converteix en una màquina ideal per executar entorns virtuals. En el meu cas, l’aprofito per a laboratoris de ciberseguretat, així com per gestionar descàrregues potencialment malicioses, sempre dins de màquines virtuals connectades a través d’una xarxa NAT per garantir la seguretat de la xarxa.</p>
+	<p>Accedeixo de manera gràfica a cada una de les màquines a través de tunneling amb ssh que dirigeix els ports vnc del servidor als locals, i des de la màquina local executo remmina per a dur a terme la connexió VNC</p>
+      <div class="image-row">
+        <img src="/imatges/servidor/dashboardactive.png" alt="DashboardMaquines" >
+        <img src="/imatges/servidor/ubuntuMate.png" alt="UbuntuMate" >
+        <img src="/imatges/servidor/laboratoriactivedirectory.png" alt="ActiveDirectoryLab" >
+        <img src="/imatges/servidor/passwordcapturada.png" alt="hashntlm" >
+        <img src="/imatges/servidor/remmina.png" alt="remmina" >
+        <img src="/imatges/servidor/windows-server.png" alt="windows10" >
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span class="accordion-title">Seguretat</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>Aquest projecte m'ha servit molt per experimentar i provar diverses configuracions amb el propósit d'apendre i poder equivocar-me lliurement.</p>
+            <p>Una de les coses on he intentat dedicar més temps és en la seguretat, a ningú li agradaria que un rus pogués tenir accés al seu nextcloud on hi guarda documents i imatges personals... 
+              He provat diverses configuracions, normalment les que més agraeixo són les que avisen, ja que quan intentes configurar alguna cosa perqué es comporti d'una manera determinada si pasa una situació determinada
+              normalment sol acabar en un desastre o un fals positiu.
+            </p>
+<p>
+  Actualment, les eines que utilitzo, enfocades a la seguretat i la integritat del servidor i de les seves dades, són: Gotify, per enviar-me notificacions quan les còpies de seguretat amb rsync es realitzen correctament; rsync, per generar i mantenir les còpies de seguretat; canvi de port per ssh ocult, clau ssh per evitar intents de força bruta; i Logrotate, per gestionar i rotar els logs i evitar que s’acumulin innecessàriament.
+ <br>Tinc pensat anar millorar la seguretat gradualment ja que moltes vegades impliquen molt temps i carinyo perqué s'adaptin correctament al que necessitem.</p>
+<p>A dia d'avui utilitzo un script propi per realitzar les còpies de seguretat del meu Nextcloud personal. Està configurat per executar-se cada dia a les 00:00 i enviar-me una notificació tant si la còpia s’ha realitzat correctament com si ha fallat.</p>
+
+<div class="image-row">
+        <img src="/imatges/servidor/nextcloud-script.png" alt="scriptnextcloud" >
+        <img src="/imatges/servidor/gotify.png" alt="gotify" >     
+ </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Imatge ampliada">
+</div>
+<div class="div-inici">
+<p>Tornar a l'inici</p><a class="btn" href="https://isaacguisset.cat" >
+  <img class="btn-inici"src="https://icones.pro/wp-content/uploads/2021/06/icone-fleche-gauche-noir.png" alt="Flecha a l'esquerra" style="width:50px; height:50px;">
+</a>
+</div>  
+<footer style="
+  background:#2a2a2a;
+  text-align:center;
+  padding:15px;
+  color:#ccc;
+  font-size:0.9rem;
+  border-top: 1px solid rgba(155, 89, 182, 0.3);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;">
+  <p>&copy; 2025 Isaac Guisset Sànchez · Tots els drets reservats</p>
+  <p>
+    <a href="mailto:guissetisaac@gmail.com" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Contacte</a> |
+    <a href="#top" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Tornar amunt ↑</a>
+  </p>
+</footer>
+
+
+<script>
+  // Accordion
+  const accordions = document.querySelectorAll('.accordion-header');
+  accordions.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.accordion-icon');
+      content.classList.toggle('open');
+      if (content.classList.contains('open')) {
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.textContent = "-";
+      } else {
+        content.style.maxHeight = 0;
+        icon.textContent = "+";
+      }
+    });
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  document.querySelectorAll('.accordion-content img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('show');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+    });
+  });
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+  });
+</script>
+
+</body>
+</html>

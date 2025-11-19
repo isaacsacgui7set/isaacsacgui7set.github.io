@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Página Matrix 01</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+  }
+  canvas { display: block; }
+
+  /* Popup centrado estilo Matrix */
+  #popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: #00FF00;
+    border: 2px solid #00FF00;
+    border-radius: 8px;
+    padding: 20px 30px;
+    font-family: monospace;
+    font-size: 18px;
+    text-align: center;
+    z-index: 100;
+    animation: fadeIn 0.5s ease;
+    min-width: 250px;
+    box-shadow: 0 0 15px #00FF00;
+  }
+
+  /* Botón de cierre (X) */
+  #popup .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    color: #00FF00;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+  }
+  #popup .close-btn:hover {
+    color: #FF0000;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+  }
+</style>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+
+<div id="popup">
+  <span class="close-btn" onclick="cerrarPopup()">✖</span>
+  Gràcies per accedir a la meva pàgina web
+</div>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+const fontSize = 16;
+const columns = Math.floor(canvas.width / fontSize);
+const drops = Array(columns).fill(1);
+const characters = ["0", "1"];
+
+function draw() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = characters[Math.floor(Math.random() * characters.length)];
+    ctx.fillStyle = "#00FF00";
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+}
+setInterval(draw, 50);
+
+/* Función para cerrar el popup */
+function cerrarPopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+</body>
+</html>

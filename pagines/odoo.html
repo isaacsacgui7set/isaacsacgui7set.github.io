@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projecte Odoo</title>
+<link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg1: #1d1d1d;
+    --color-bg2: #2a0d35;
+    --color-accent: #9b59b6;
+    --color-text: #f5f5f5;
+  }
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background: var(--color-bg1);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2));
+    padding: 40px 20px;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 3rem;
+    color: var(--color-accent);
+  }
+  header p {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .pdf-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  .pdf-viewer {
+    width: 90%;
+    height: 80vh;
+    border: none;
+    box-shadow: 0 0 20px rgba(155,89,182,0.5);
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Treball final de cicle</h1>
+  <p>Treball relacionat amb l'ús i les diferents funcionalitats de l'ERP ODOO.</p>
+</header>
+
+<div class="pdf-container">
+  <iframe class="pdf-viewer" src="/arxius/treballs/odoo.pdf"></iframe>
+</div>
+
+</body>
+</html>

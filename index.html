@@ -1,46 +1,852 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pàgina en Manteniment</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: blueviolet;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #fff;
-            text-align: center;
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-            animation: pulse 2s infinite;
-        }
-        p {
-            font-size: 1.5em;
-            margin-top: 0;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 50px 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfoli digital - Isaac Guisset</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
+  <style>
+    :root {
+      --color-bg1: #1d1d1d;
+      --color-bg2: #2a0d35;
+      --color-accent: #9b59b6;
+      --color-text: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: var(--color-bg1);
+      color: var(--color-text);
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      animation: fadeDown 1.2s ease forwards;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      color: #ccc;
+      animation: fadeUp 1.5s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      bottom: 30px;
+      font-size: 2rem;
+      color: var(--color-accent);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--color-accent);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #2a2a2a;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 4px 20px rgba(155, 89, 182, 0.5);
+    }
+
+    .card img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .skills {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill-name {
+      margin-bottom: 5px;
+    }
+
+    .skill-bar {
+      background: #444;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 12px;
+      background: var(--color-accent);
+      width: 0;
+      transition: width 1.2s ease;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: var(--color-accent);
+      color: #fff;
+      text-decoration: none;
+      margin: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #8e44ad;
+    }
+
+    /* Slider */
+    .slider {
+      max-width: 1000px;
+      margin: 40px auto 60px;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slider-track img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--color-accent);
+      border: none;
+      padding: 10px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: white;
+      font-size: 1.5rem;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .slider-button:hover {
+      opacity: 1;
+    }
+
+    .slider-button.prev {
+      left: 15px;
+    }
+
+    .slider-button.next {
+      right: 15px;
+    }
+
+    /* Botons Més info */
+    .info-btn {
+      margin-top: 8px;
+      padding: 5px 12px;
+      border: none;
+      background: var(--color-accent);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .info-btn:hover {
+      background: #8e44ad;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      color: var(--color-text);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .close {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-accent);
+    }
+
+    .close:hover {
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .dynamic-island {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      padding: 8px 16px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      z-index: 2000;
+      backdrop-filter: blur(6px);
+    }
+
+    .dynamic-island img {
+      display: inline-block;
+    }
+
+    #qui-soc .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      max-width: 900px;
+      margin: auto;
+      background: #2a2a2a;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(155, 89, 182, 0.3);
+    }
+
+    #qui-soc .about-image img {
+      width: 150px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 3px solid var(--color-accent);
+    }
+
+    #qui-soc .about-info {
+      flex: 1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .dynamic-island a {
+      color: var(--color-text);
+      text-decoration: none;
+      padding: 6px 14px;
+      background: var(--color-accent);
+      border-radius: 20px;
+      transition: background 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .dynamic-island a:hover {
+      background: #8e44ad;
+    }
+
+    /* 📱 Ajustes para móvil */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .dynamic-island {
+        flex-wrap: wrap;
+        gap: 6px;
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        overflow-x: auto;
+      }
+
+      #qui-soc .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #qui-soc .about-image img {
+        width: 120px;
+        height: 140px;
+      }
+
+      section {
+        padding: 60px 15px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card h3 {
+        font-size: 1rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .dynamic-island {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .nav-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: var(--color-accent);
+      font-size: 1.1rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-menu a {
+      color: var(--color-text);
+      text-decoration: none;
+      background: var(--color-accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: background 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .nav-menu a:hover {
+      background: #8e44ad;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: var(--color-accent);
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .menu-toggle:hover {
+      color: #fff;
+    }
+
+    /* versio per móbil */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .nav-menu.show {
+        display: flex;
+      }
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Pàgina en Manteniment</h1>
-        <p>Estic actualitzant el meu portfoli, siusplau, torna més tard :)</p>
+
+<body id="top">
+  <header class="nav-header">
+    <div class="nav-container">
+      <div class="logo">Isaac Guisset</div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Obrir menú">☰</button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#top">Inici</a>
+        <a href="#qui-soc">Qui sóc</a>
+        <a href="#experiencia">Experiència</a>
+        <a href="#projectes">Projectes</a>
+        <a href="#habilitats">Habilitats</a>
+        <a href="#contacte">Contacte</a>
+      </nav>
     </div>
+  </header>
+
+
+  <div class="hero">
+    <h1 id="greeting"></h1>
+    <p id="time"></p>
+    <p style="margin-top:10px; font-size:1.2rem; color:#bbb;">Benvinguts al portfoli de Isaac Guisset Sánchez</p>
+    <div class="arrow" onclick="document.getElementById('projectes').scrollIntoView({behavior:'smooth'});">↓</div>
+  </div>
+  <section id="qui-soc">
+    <h2>Qui sóc</h2>
+    <div class="about-container">
+      <div class="about-image">
+        <img src="imatges/imatge cv.jpg" alt="Foto Isaac">
+      </div>
+      <div class="about-info">
+        <b>
+          <p>Isaac Guisset Sànchez</p>
+        </b>
+        <br>
+        <p>Educació Secundària Obligatória- 2019 -- 2023</p>
+        <p>CFGM Sistemes Microinformàtics i Xarxes - 9/2023 -- 6/2025</p>
+        <p>CFGS Desenvolupament d'Aplicacions Web - 9/2025 -- Actualitat</p>
+        <br>
+        <p>Sóc un estudiant apassionat de la informàtica i la tecnologia, amb especial interès en servidors i
+          administració de sistemes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <h2>Experiència Laboral</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>CFA Maria Verdaguer (Pràctiques) - Figueres</h3>
+        <span class="period">10/2024 - 5/2025 (383h)</span>
+        <p>Pràctiques de CFGM: configuració de xarxes, instal·lació de sistemes operatius, atenció a l'usuari i
+          manteniment dels dispositius del centre.</p>
+      </div>
+      <br>
+      <div class="timeline-item">
+        <h3>Can ponac (Voluntariat) - Celrà</h3>
+        <span class="period">2022 (60 hores)</span>
+        <p>Formació a persones de la tercera edat en l’ús de dispositius mòbils i ordinadors. Explicació de funcions
+          bàsiques: ús de WhatsApp, configuració de correu electrònic, navegació segura per Internet i gestió de fotos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projectes">    
+    <h2>Projectes</h2>
+    <p style="text-align:center; font-style:italic; color:#aaa; margin-top:20px; margin-bottom: 10px;">
+  Properament afegiré contingut i altres projectes en aquesta seccio ja que actualment estic documentant i treballant en ells.
+</p>
+
+    <div class="cards">
+      <div class="card" onclick="window.location.href=('https://isaacguisset.cat/pagines/servidor.html')">
+        <img
+          src="https://image.made-in-china.com/2f0j00JfbcwGIhSCkd/High-Quality-DELL-Precision-5820-Tower-Workstation.jpg"
+          alt="Servidor">
+        <h3>Servidor</h3>
+        <!-- <p>Inicis del servidor i algunes de les funcions que té.</p> -->
+      </div>
+
+      <div class="card" onclick="window.location.href=('https://isaacguisset.cat/pagines/odoo.html')">
+        <img src="https://cdn.worldvectorlogo.com/logos/odoo.svg" alt="Odoo">
+        <h3>ERP Odoo</h3>
+        <!-- <p>Projecte de síntesi SMX2 de l'ERP Odoo v17</p> -->
+      </div>
+      
+      <!-- <div class="card"> -->
+      <!-- <img src="https://wiki.casaos.io/_assets/casaos-no-text.svg" alt="casaos"> -->
+      <!-- <h3>CasaOs</h3> -->
+      <!-- <p>Els serveis que tinc desplegats i per a qué serveixen.</p> -->
+      <!-- </div> -->
+
+      <!-- <div class="card">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/2560px-Nextcloud_Logo.svg.png">
+        <h3>Desplegar Nextcloud amb docker</h3>
+        <p>Servidor de dades personal amb pujada d'imatges automàtica.</p>
+      </div> -->
+
+      <!-- <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3208/3208690.png" alt>
+        <h3>Eines de seguretat</h3>
+        <p>Les eines que utilitzo per monitorar la seguretat del servidor i impedir els atacs via diferents serveis.</p>
+      </div> -->
+      <div class="card" onclick="window.location.href=('https://isaacguisset.cat/pagines/phishing.html')">
+        <img src="https://hipaatrek.com/wp-content/uploads/2018/12/Phishing-Dont-Take-the-Bait.png"
+          alt="Ciberseguretat">
+        <h3>Treball ciberseguretat<br>(phising)</h3>
+        <!-- <p>Explicació i documentació del treball relacionat amb el phising.</p> -->
+      </div>
+
+      <div class="card" onclick="window.location.href=('https://isaacguisset.cat/pagines/gotify.html')">
+        <img src="https://gotify.net/img/logo.png" alt="Gotify">
+        <h3>Gotify</h3>
+        <!-- <p>Instal·lació i configuració de gotify per tal de rebre alertes relacionades amb diversos serveis desplegats dins el servidor.</p> -->
+      </div>
+
+      <!-- <div class="card">
+        <img src="https://www.grupopancorbo.com/wp-content/uploads/2023/09/IG_mantenimientosistemas23.png"
+          alt="Eines de gestió del servidor">
+        <h3>Eines de gestió del servidor</h3>
+        <p>Documentació de les eines que utilitzo per gestionar el servidor, fer cópies de seguretat, accedir-hi remotament...</p>
+      </div> -->
+    </div>
+  </section>
+
+  <div class="slider" aria-label="Galeria d'imatges">
+    <button class="slider-button prev" aria-label="Anterior">&lt;</button>
+    <div class="slider-track">
+      <img class="slide" src="imatges/slider/1.png" alt="Imatge 1" draggable="false" />
+      <img class="slide" src="imatges/slider/2.png" alt="Imatge 2" draggable="false" />
+      <img class="slide" src="imatges/slider/3.png" alt="Imatge 3" draggable="false" />
+      <img class="slide" src="imatges/slider/4.png" alt="Imatge 4" draggable="false" />
+      <img class="slide" src="imatges/slider/5.png" alt="Imatge 5" draggable="false" />
+      <img class="slide" src="imatges/slider/6.png" alt="Imatge 6" draggable="false" />
+      <img class="slide" src="imatges/slider/7.png" alt="Imatge 7" draggable="false" />
+    </div>
+    <button class="slider-button next" aria-label="Següent">&gt;</button>
+  </div>
+  <section id="habilitats">
+    <h2>Habilitats</h2>
+    <div class="skills">
+
+      <!-- Windows/Linux -->
+      <div class="skill">
+        <div class="skill-name">Administració de servidors Windows/Linux</div>
+        <div class="skill-bar">
+          <div class="skill-bar-fill" data-fill="90%"></div>
+        </div>
+        <button class="info-btn" data-title="Administració Windows/Linux"
+          data-text="Administració i configuració de servidors Windows i Linux (Windows Server - Ubuntu Server), polítiques de grup, creació d'usuaris, unitats de xarxa...">Més
+          info</button>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Configuració de serveis: DNS, DHCP, SMTP, IMAP/POP3, HTTP/HTTPS, FTP</div>
+        <div class="skill-bar">
+          <div class="skill-bar-fill" data-fill="85%"></div>
+        </div>
+        <button class="info-btn" data-title="Configuració de serveis"
+          data-text="Configuració de BIND9 (DNS), isc-dhcp-server (DHCP), Postfix (SMTP) (IMAP/POP3), Apache (HTTP/HTTPS) i ProFTPD (FTP).">Més
+          info</button>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Instal·lació de sistemes operatius i configuració per l'usuari final</div>
+        <div class="skill-bar">
+          <div class="skill-bar-fill" data-fill="75%"></div>
+        </div>
+        <button class="info-btn" data-title="Instal·lació i configuració de SO"
+          data-text="Instal·lació de Windows i Linux, configuració inicial d'usuaris, paquets, programari, drivers i configuracions de seguretat bàsics per a l'usuari final com antivirus o firewall.">Més
+          info</button>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Monitorització i gestió</div>
+        <div class="skill-bar">
+          <div class="skill-bar-fill" data-fill="70%"></div>
+        </div>
+        <button class="info-btn" data-title="Monitorització i gestió"
+          data-text="He tocat algunes eines com Cockpit o cacti per supervisar servidors, serveis i recursos de xarxa.">Més
+          info</button>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Xarxes i seguretat</div>
+        <div class="skill-bar">
+          <div class="skill-bar-fill" data-fill="65%"></div>
+        </div>
+        <button class="info-btn" data-title="Xarxes i seguretat"
+          data-text="Configuració de VLANs, tallafocs (iptables/ufw), VPNs, routing bàsic i monitorització de tràfic amb Wireshark.">Més
+          info</button>
+      </div>
+
+
+
+      <div class="skill">
+        <div class="skill-name">Virtualització i contenidors</div>
+        <div class="skill-bar">
+          <div class="skill-bar-fill" data-fill="45%"></div>
+        </div>
+        <button class="info-btn" data-title="Virtualització i contenidors"
+          data-text="Gestió de màquines virtuals amb VirtualBox, administració de contenidors amb docker (dockerfile i docker-compose)">Més
+          info</button>
+      </div>
+
+
+
+
+
+    </div>
+  </section>
+
+  <section id="contacte">
+    <h2>Contacte & CV</h2>
+    <div class="contact">
+      <a class="btn" href="mailto:guissetisaac@gmail.com">Enviar Correu</a>
+      <a class="btn" href="/arxius/Isaac_Guisset-CV-Cat.pdf">Veure CV</a>
+      <a class="btn" href="https://isaacguisset.cat/contacte/index.html">Formulari de contacte</a>
+      <br>
+      <a class="btn" href="https://github.com/isaacguisset">
+        <img src="https://cdn-icons-png.flaticon.com/256/25/25231.png" alt="Github" style="width:24px; height:24px;">
+      </a>
+
+      <a class="btn" href="https://es.linkedin.com/in/isaac-guisset-6a8b7736b">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png" alt="Linkedin"
+          style="width:24px; height:24px;">
+      </a>
+      <a class="btn" href="https://instagram.com/isaacguisset">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram"
+          style="width:24px; height:24px;">
+      </a>
+      <a class="btn" href="https://10fastfingers.com/user/4134151/">
+        <img src="https://cdn-icons-png.flaticon.com/512/6605/6605207.png" alt="10fastfingers"
+          style="width:24px; height:24px;">
+      </a>
+    </div>
+  </section>
+
+  <div id="info-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+  <footer
+    style="background:#2a2a2a; text-align:center; padding:20px; margin-top:50px; color:#ccc; font-size:0.9rem; border-top: 1px solid rgba(155, 89, 182, 0.3);">
+    <p>&copy; 2025 Isaac Guisset Sànchez · Tots els drets reservats</p>
+    <p>
+      <a href="mailto:guissetisaac@gmail.com" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Contacte</a> |
+      <a href="#top" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Tornar amunt ↑</a>
+    </p>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fills = document.querySelectorAll(".skill-bar-fill");
+      fills.forEach(fill => {
+        const percent = fill.getAttribute("data-fill");
+        fill.style.width = percent;
+      });
+    });
+  </script>
+
+  <script>
+    function updateGreeting() {
+      const now = new Date();
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+      let greeting;
+
+      if (hour >= 19 && hour <= 23) {
+        greeting = "Bona nit";
+      } else if ((hour === 0 && minute >= 1) || (hour >= 1 && hour <= 4)) {
+        greeting = "Bona nit";
+      } else if (hour >= 5 && hour <= 12) {
+        greeting = "Bon dia";
+      } else if (hour >= 13 && hour <= 18) {
+        greeting = "Bona tarda";
+      } else {
+        greeting = "Hola!";
+      }
+
+      document.getElementById('greeting').textContent = greeting;
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('time').textContent = `${h}:${m}:${s}`;
+    }
+
+    updateGreeting();
+    updateClock();
+    setInterval(() => {
+      updateClock();
+      updateGreeting();
+    }, 1000);
+
+    // Slider
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let index = 0;
+    const totalSlides = slides.length;
+    function updateSlider() {
+      sliderTrack.style.transform = `translateX(${-index * 100}%)`;
+    }
+    prevBtn.addEventListener('click', () => {
+      index = (index === 0) ? totalSlides - 1 : index - 1;
+      updateSlider();
+    });
+    nextBtn.addEventListener('click', () => {
+      index = (index === totalSlides - 1) ? 0 : index + 1;
+      updateSlider();
+    });
+
+    const modal = document.getElementById('info-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalText = document.getElementById('modal-text');
+    const closeBtn = modal.querySelector('.close');
+    document.querySelectorAll('.info-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        modalTitle.textContent = btn.dataset.title;
+        modalText.textContent = btn.dataset.text;
+        modal.style.display = 'flex';
+      });
+    });
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', e => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+  </script>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+      });
+    });
+  </script>
+
 </body>
+
 </html>
+>>>>>>> e9f5c1a (Primer commit)

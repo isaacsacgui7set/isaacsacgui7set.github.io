@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>gotify</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
+<style>
+  :root {
+    --color-bg1: #1d1d1d;
+    --color-bg2: #2a0d35;
+    --color-accent: #9b59b6;
+    --color-text: #f5f5f5;
+  }
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background: var(--color-bg1);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2));
+    padding: 40px 20px;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 3rem;
+    color: var(--color-accent);
+  }
+  header p {
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+  .accordion {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .accordion-item {
+    border-bottom: 1px solid #444;
+  }
+  .accordion-header {
+    padding: 15px;
+    background: #2a2a2a;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accordion-header:hover {
+    background: #3a3a3a;
+  }
+  .accordion-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  .accordion-icon {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #222;
+    transition: max-height 0.4s ease;
+    padding: 0 15px;
+  }
+  .accordion-content.open {
+    padding: 15px;
+  }
+  .accordion-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(155,89,182,0.5);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .accordion-content img:hover {
+    transform: scale(1.05);
+  }
+  .accordion-content p {
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+
+  .accordion-content .image-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .accordion-content .image-row img {
+    max-width: calc(33.33% - 10px);
+  }
+  @media (max-width: 768px) {
+    .accordion-content .image-row img {
+      max-width: calc(50% - 10px);
+    }
+  }
+  @media (max-width: 480px) {
+    .accordion-content .image-row img {
+      max-width: 100%;
+    }
+  }
+
+ /* Lightbox */
+  .lightbox {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+  .lightbox.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .btn-inici{
+    margin-left: 0px;
+    background-color: blueviolet;
+    border-radius: 15px;
+    box-shadow: 1px 1px white;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+
+    }
+    .div-inici{
+      text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>GOTIFY</h1>
+</header>
+
+<div class="accordion">
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span class="accordion-title">Que és gotify?</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-content">
+      <p>Gotify és un servidor de notificacions en temps real de codi obert. Serveix per enviar notificacions push al teu mòbil o a qualsevol dispositiu que suporti l’API, com quan vols que un script t’avisi quan acaba un procés o quan passa alguna cosa important al servidor.</p>
+      <div class="image-row">
+        <img src="https://avatars.githubusercontent.com/u/36410427?v=4" alt="Icona de gotify">
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span class="accordion-title">Per a quines notificacions l'utilitzo?</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-content">
+      <p></p> 
+      <p></p>
+      <!-- <div class="image-row">
+        <img src="imatges/servidor/servidor.jpeg" alt="ImatgeServidor">
+        <img src="imatges/servidor/WhatsApp Image 2025-08-16 at 5.35.37 PM.jpeg" alt="Icon prova 2">
+        <img src="imatges/servidor/odoo db.jpeg" alt="Icon prova 3">
+      </div> -->
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span class="accordion-title">Implementació de gotify a scripts de cópies de seguretat</span>
+      <span class="accordion-icon">+</span>
+    </div>
+    <div class="accordion-content">
+      <!-- <p>El curs es va acabar i va començar l’estiu, tenia molt temps lliure per pensar projectes, vaig descobrir un gestor de contingut audiovisual anomenat Jellyfin (ve a ser el mateix que Plex però de codi obert) i vaig decidir instal·lar-ho al meu servidor per veure pel·lícules.</p>
+      <p>A més del treball també vaig publicar la meva pàgina personal que vaig desenvolupar amb HTML + CSS + PHP, el primer projecte individual.</p> -->
+      <!-- <div class="image-row">
+        <img src="imatges/servidor/login jellyfin.jpeg" alt="Icon prova 1">
+        <img src="imatges/servidor/jellyfin.jpeg" alt="Icon prova 1">
+        <img src="imatges/servidor/Admin jellyfin.jpeg" alt="Icon prova 1">
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Imatge ampliada">
+</div>
+<div class="div-inici">
+<p>Tornar a l'inici</p><a class="btn" href="https://isaacguisset.cat" >
+  <img class="btn-inici"src="https://icones.pro/wp-content/uploads/2021/06/icone-fleche-gauche-noir.png" alt="Flecha a l'esquerra" style="width:50px; height:50px;">
+</a>
+</div>  
+<footer style="
+  background:#2a2a2a;
+  text-align:center;
+  padding:15px;
+  color:#ccc;
+  font-size:0.9rem;
+  border-top: 1px solid rgba(155, 89, 182, 0.3);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;">
+  <p>&copy; 2025 Isaac Guisset Sànchez · Tots els drets reservats</p>
+  <p>
+    <a href="mailto:guissetisaac@gmail.com" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Contacte</a> |
+    <a href="#top" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Tornar amunt ↑</a>
+  </p>
+</footer>
+
+
+<script>
+  // Accordion
+  const accordions = document.querySelectorAll('.accordion-header');
+  accordions.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.accordion-icon');
+      content.classList.toggle('open');
+      if (content.classList.contains('open')) {
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.textContent = "-";
+      } else {
+        content.style.maxHeight = 0;
+        icon.textContent = "+";
+      }
+    });
+  });
+
+ // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  document.querySelectorAll('.accordion-content img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('show');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+    });
+  });
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+  });
+</script>
+
+</body>
+</html>
