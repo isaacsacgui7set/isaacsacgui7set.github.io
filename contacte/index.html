@@ -228,7 +228,7 @@
       try {
         data = await res.json();
       } catch (err) {
-        data = { success: res.ok, error: !res.ok ? 'Resposta inesperada del servidor' : undefined };
+        data = { success: res.ok, error: !res.ok ? 'Actualment no esta disponible aquest formulari degut a que aquesta pàgina està allotjada a github pages, consulta les altres formes de contacte i disculpa les molésties' : undefined };
       }
 
       if (data.success) {
