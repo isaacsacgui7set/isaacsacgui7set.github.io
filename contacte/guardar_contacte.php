@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-$dir = '/var/www/isaacguisset.cat/contactes';
+$dir = '/var/www/isaacguisset.com/contactes';
 
 if (!is_dir($dir)) {
     mkdir($dir, 0755, true);
