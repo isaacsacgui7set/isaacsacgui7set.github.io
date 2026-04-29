@@ -5,578 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfoli digital - Isaac Guisset</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet">
   <link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
-  <style>
-    :root {
-      --color-bg1: #1d1d1d;
-      --color-bg2: #2a0d35;
-      --color-accent: #9b59b6;
-      --color-text: #f5f5f5;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: var(--color-bg1);
-      color: var(--color-text);
-      scroll-behavior: smooth;
-    }
-
-    .hero {
-      height: 100vh;
-      background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2));
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 0.5rem;
-      animation: fadeDown 1.2s ease forwards;
-    }
-
-    .hero p {
-      font-size: 1.5rem;
-      color: #ccc;
-      animation: fadeUp 1.5s ease forwards;
-    }
-
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .arrow {
-      position: absolute;
-      bottom: 30px;
-      font-size: 2rem;
-      color: var(--color-accent);
-      animation: bounce 2s infinite;
-      cursor: pointer;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(8px);
-      }
-    }
-
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 40px;
-      color: var(--color-accent);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #2a2a2a;
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.4s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 4px 20px rgba(155, 89, 182, 0.5);
-    }
-
-    .card img {
-      width: 60px;
-      margin-bottom: 15px;
-    }
-
-    .skills {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .skill {
-      margin-bottom: 20px;
-    }
-
-    .skill-name {
-      margin-bottom: 5px;
-    }
-
-    .skill-bar {
-      background: #444;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .skill-bar-fill {
-      height: 12px;
-      background: var(--color-accent);
-      width: 0;
-      transition: width 1.2s ease;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 25px;
-      background: var(--color-accent);
-      color: #fff;
-      text-decoration: none;
-      margin: 10px;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #8e44ad;
-    }
-
-    /* Slider */
-    .slider {
-      max-width: 1000px;
-      margin: 40px auto 60px;
-      position: relative;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
-    }
-
-    .slider-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .slider-track img {
-      width: 100%;
-      flex-shrink: 0;
-      object-fit: cover;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    .slider-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--color-accent);
-      border: none;
-      padding: 10px 16px;
-      border-radius: 50%;
-      cursor: pointer;
-      color: white;
-      font-size: 1.5rem;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-      user-select: none;
-      z-index: 10;
-    }
-
-    .slider-button:hover {
-      opacity: 1;
-    }
-
-    .slider-button.prev {
-      left: 15px;
-    }
-
-    .slider-button.next {
-      right: 15px;
-    }
-
-    /* Botons Més info */
-    .info-btn {
-      margin-top: 8px;
-      padding: 5px 12px;
-      border: none;
-      background: var(--color-accent);
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .info-btn:hover {
-      background: #8e44ad;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: #2a2a2a;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 500px;
-      width: 90%;
-      color: var(--color-text);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      animation: fadeIn 0.3s ease;
-    }
-
-    .close {
-      float: right;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--color-accent);
-    }
-
-    .close:hover {
-      color: #fff;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .dynamic-island {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.8);
-      padding: 8px 16px;
-      border-radius: 999px;
-      color: #fff;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      z-index: 2000;
-      backdrop-filter: blur(6px);
-    }
-
-    .dynamic-island img {
-      display: inline-block;
-    }
-
-    #qui-soc .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 30px;
-      max-width: 900px;
-      margin: auto;
-      background: #2a2a2a;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(155, 89, 182, 0.3);
-    }
-
-    #qui-soc .about-image img {
-      width: 150px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 3px solid var(--color-accent);
-    }
-
-    #qui-soc .about-info {
-      flex: 1;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .dynamic-island a {
-      color: var(--color-text);
-      text-decoration: none;
-      padding: 6px 14px;
-      background: var(--color-accent);
-      border-radius: 20px;
-      transition: background 0.3s;
-      font-size: 0.95rem;
-    }
-
-    .dynamic-island a:hover {
-      background: #8e44ad;
-    }
-
-    /* 📱 Ajustes para móvil */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .dynamic-island {
-        flex-wrap: wrap;
-        gap: 6px;
-        font-size: 0.8rem;
-        padding: 6px 10px;
-        overflow-x: auto;
-      }
-
-      #qui-soc .about-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      #qui-soc .about-image img {
-        width: 120px;
-        height: 140px;
-      }
-
-      section {
-        padding: 60px 15px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .card h3 {
-        font-size: 1rem;
-      }
-
-      footer {
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .dynamic-island {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-    .nav-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 2000;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: bold;
-      color: var(--color-accent);
-      font-size: 1.1rem;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 15px;
-    }
-
-    .nav-menu a {
-      color: var(--color-text);
-      text-decoration: none;
-      background: var(--color-accent);
-      padding: 6px 14px;
-      border-radius: 20px;
-      transition: background 0.3s;
-      font-size: 0.9rem;
-    }
-
-    .nav-menu a:hover {
-      background: #8e44ad;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      color: var(--color-accent);
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .menu-toggle:hover {
-      color: #fff;
-    }
-
-    /*barra de stack tecnol´ogic*/
-    /* === STACK TECNOLÒGIC === */
-    .stack-track-wrapper {
-      overflow: hidden;
-      position: relative;
-      padding: 10px 0;
-    }
-
-    .stack-track-wrapper::before,
-    .stack-track-wrapper::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 80px;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .stack-track-wrapper::before {
-      left: 0;
-      background: linear-gradient(to right, #1d1d1d, transparent);
-    }
-
-    .stack-track-wrapper::after {
-      right: 0;
-      background: linear-gradient(to left, #1d1d1d, transparent);
-    }
-
-    .stack-track {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      width: max-content;
-      animation: stack-scroll 28s linear infinite;
-    }
-
-    .stack-track:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes stack-scroll {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .tech-pill {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
-      border: 1px solid rgba(155, 89, 182, 0.3);
-      border-radius: 999px;
-      background: #2a2a2a;
-      white-space: nowrap;
-      font-size: 0.85rem;
-      color: var(--color-text);
-      font-family: 'Orbitron', sans-serif;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      cursor: default;
-    }
-
-    .tech-pill:hover {
-      border-color: var(--color-accent);
-      box-shadow: 0 0 12px rgba(155, 89, 182, 0.4);
-    }
-
-    .tech-pill img {
-      width: 22px;
-      height: 22px;
-      object-fit: contain;
-    }
-
-    /* versio per móbil */
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        animation: fadeIn 0.3s ease;
-      }
-
-      .nav-menu.show {
-        display: flex;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="estils.css">
 </head>
 
 <body id="top">
@@ -600,7 +33,7 @@
     <h1 id="greeting"></h1>
     <p id="time"></p>
     <p style="margin-top:10px; font-size:1.2rem; color:#bbb;">Benvinguts al portfoli de Isaac Guisset Sánchez</p>
-    
+
     <div class="arrow" onclick="document.getElementById('projectes').scrollIntoView({behavior:'smooth'});">↓</div>
   </div>
   <section id="qui-soc">
@@ -662,54 +95,78 @@
     </div>
   </section>
 
-<section id="stack">
-  <h2>Stack Tecnològic</h2>
-  <div class="stack-track-wrapper">
-    <div class="stack-track" id="stack-track"></div>
-  </div>
-</section>
+  <section id="stack">
+    <h2>Stack Tecnològic</h2>
+    <div class="stack-track-wrapper">
+      <div class="stack-track" id="stack-track"></div>
+    </div>
+  </section>
 
   <section id="projectes">
     <h2>Projectes</h2>
-    <p style="text-align:center; font-style:italic; color:#aaa; margin-top:20px; margin-bottom: 10px;">
-      Properament afegiré contingut i altres projectes en aquesta seccio ja que actualment estic documentant i
+    <p style="text-align:center; font-style:italic; color:#aaa; margin-top:20px; margin-bottom: 30px;">
+      Properament afegiré contingut i altres projectes en aquesta secció ja que actualment estic documentant i
       treballant en ells.
     </p>
 
     <div class="cards">
-      <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/servidor.html')">
+
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/servidor.html'">
+        <span class="badge badge-done"> Completat</span>
         <img
           src="https://image.made-in-china.com/2f0j00JfbcwGIhSCkd/High-Quality-DELL-Precision-5820-Tower-Workstation.jpg"
           alt="Servidor">
         <h3>Servidor</h3>
-        <!-- <p>Inicis del servidor i algunes de les funcions que té.</p> -->
+        <p class="project-desc">Servidor propi amb diversos serveis desplegats: web, notificacions, monitorització i
+          còpies de seguretat.</p>
+        <div class="project-tags">
+          <span class="tag">Ubuntu Server</span>
+          <span class="tag">Apache</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Gotify</span>
+        </div>
       </div>
 
-      <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/odoo.html')">
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/odoo.html'">
+        <span class="badge badge-done"> Completat</span>
         <img src="https://cdn.worldvectorlogo.com/logos/odoo.svg" alt="Odoo">
         <h3>ERP Odoo</h3>
-        <!-- <p>Projecte de síntesi SMX2 de l'ERP Odoo v17</p> -->
+        <p class="project-desc">Projecte de síntesi del CFGM: instal·lació i configuració de l'ERP Odoo v17 en entorn
+          Linux.</p>
+        <div class="project-tags">
+          <span class="tag">Odoo v17</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Linux</span>
+        </div>
       </div>
 
-      <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/phishing.html')">
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/phishing.html'">
+        <span class="badge badge-done"> Completat</span>
         <img src="https://hipaatrek.com/wp-content/uploads/2018/12/Phishing-Dont-Take-the-Bait.png"
           alt="Ciberseguretat">
-        <h3>Treball ciberseguretat<br>(phising)</h3>
-        <!-- <p>Explicació i documentació del treball relacionat amb el phising.</p> -->
+        <h3>Treball ciberseguretat<br>(phishing)</h3>
+        <p class="project-desc">Documentació i anàlisi d'atacs de phishing: tècniques, exemples reals i mesures de
+          prevenció.</p>
+        <div class="project-tags">
+          <span class="tag">Ciberseguretat</span>
+          <span class="tag">Phishing</span>
+          <span class="tag">Investigació</span>
+        </div>
       </div>
 
-      <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/gotify.html')">
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/gotify.html'">
+        <span class="badge badge-wip"> En progrés</span>
         <img src="https://gotify.net/img/logo.png" alt="Gotify">
         <h3>Gotify</h3>
-        <!-- <p>Instal·lació i configuració de gotify per tal de rebre alertes relacionades amb diversos serveis desplegats dins el servidor.</p> -->
+        <p class="project-desc">Sistema d'alertes i notificacions push per rebre avisos dels serveis desplegats al
+          servidor.</p>
+        <div class="project-tags">
+          <span class="tag">Gotify</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Self-hosted</span>
+        </div>
       </div>
 
-      <!-- <div class="card">
-        <img src="https://www.grupopancorbo.com/wp-content/uploads/2023/09/IG_mantenimientosistemas23.png"
-          alt="Eines de gestió del servidor">
-        <h3>Eines de gestió del servidor</h3>
-        <p>Documentació de les eines que utilitzo per gestionar el servidor, fer cópies de seguretat, accedir-hi remotament...</p>
-      </div> -->
     </div>
   </section>
 
@@ -950,34 +407,35 @@
       });
     });
   </script>
-<script>
-  const stackTechs = [
-    { name: "Linux",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-    { name: "Windows Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
-    { name: "Docker",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-    { name: "Apache",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
-    { name: "C#",             icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
-    { name: "HTML5",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-    { name: "CSS3",           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-    { name: "JavaScript",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-    { name: "MySQL",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-    { name: "MongoDB",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-    { name: "Git",            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-    { name: "GitHub",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-    { name: "VS Code",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-    { name: "Bash",           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
-    { name: "VirtualBox",     icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" },
-    { name: "Wireshark",      icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
-  ];
+  <script>
+    /*Falta afegir-ne més*/
+    const stackTechs = [
+      { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      { name: "Windows Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
+      { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Apache", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
+      { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+      { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+      { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
+      { name: "VirtualBox", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" },
+      { name: "Wireshark", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
+    ];
 
-  const stackTrack = document.getElementById('stack-track');
-  [...stackTechs, ...stackTechs].forEach(t => {
-    const pill = document.createElement('div');
-    pill.className = 'tech-pill';
-    pill.innerHTML = `<img src="${t.icon}" alt="${t.name}" onerror="this.style.display='none'"><span>${t.name}</span>`;
-    stackTrack.appendChild(pill);
-  });
-</script>
+    const stackTrack = document.getElementById('stack-track');
+    [...stackTechs, ...stackTechs].forEach(t => {
+      const pill = document.createElement('div');
+      pill.className = 'tech-pill';
+      pill.innerHTML = `<img src="${t.icon}" alt="${t.name}" onerror="this.style.display='none'"><span>${t.name}</span>`;
+      stackTrack.appendChild(pill);
+    });
+  </script>
 
 </body>
 
