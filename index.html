@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -472,6 +473,84 @@
       color: #fff;
     }
 
+    /*barra de stack tecnol´ogic*/
+    /* === STACK TECNOLÒGIC === */
+    .stack-track-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .stack-track-wrapper::before,
+    .stack-track-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .stack-track-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, #1d1d1d, transparent);
+    }
+
+    .stack-track-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, #1d1d1d, transparent);
+    }
+
+    .stack-track {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      width: max-content;
+      animation: stack-scroll 28s linear infinite;
+    }
+
+    .stack-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes stack-scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .tech-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border: 1px solid rgba(155, 89, 182, 0.3);
+      border-radius: 999px;
+      background: #2a2a2a;
+      white-space: nowrap;
+      font-size: 0.85rem;
+      color: var(--color-text);
+      font-family: 'Orbitron', sans-serif;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+
+    .tech-pill:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 12px rgba(155, 89, 182, 0.4);
+    }
+
+    .tech-pill img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
     /* versio per móbil */
     @media (max-width: 768px) {
       .menu-toggle {
@@ -521,6 +600,7 @@
     <h1 id="greeting"></h1>
     <p id="time"></p>
     <p style="margin-top:10px; font-size:1.2rem; color:#bbb;">Benvinguts al portfoli de Isaac Guisset Sánchez</p>
+    
     <div class="arrow" onclick="document.getElementById('projectes').scrollIntoView({behavior:'smooth'});">↓</div>
   </div>
   <section id="qui-soc">
@@ -543,7 +623,7 @@
       </div>
     </div>
   </section>
- <section id="experiencia">
+  <section id="experiencia">
     <h2>Estudis</h2>
     <div class="timeline">
       <div class="timeline-item">
@@ -555,7 +635,7 @@
         <h3>Sistemes Microinformàtics i Xarxes CFGM SMX - Cendrassos(Figueres) </h3>
         <span class="period">9/2023 - 6/2025</span>
       </div>
-       <br>
+      <br>
       <div class="timeline-item">
         <h3>Educació secundària obligatòria (ESO) IES de Celrà </h3>
         <span class="period">9/2019 - 6/2023</span>
@@ -581,14 +661,20 @@
       </div>
     </div>
   </section>
-  
 
+<section id="stack">
+  <h2>Stack Tecnològic</h2>
+  <div class="stack-track-wrapper">
+    <div class="stack-track" id="stack-track"></div>
+  </div>
+</section>
 
-  <section id="projectes">    
+  <section id="projectes">
     <h2>Projectes</h2>
     <p style="text-align:center; font-style:italic; color:#aaa; margin-top:20px; margin-bottom: 10px;">
-  Properament afegiré contingut i altres projectes en aquesta seccio ja que actualment estic documentant i treballant en ells.
-</p>
+      Properament afegiré contingut i altres projectes en aquesta seccio ja que actualment estic documentant i
+      treballant en ells.
+    </p>
 
     <div class="cards">
       <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/servidor.html')">
@@ -604,7 +690,7 @@
         <h3>ERP Odoo</h3>
         <!-- <p>Projecte de síntesi SMX2 de l'ERP Odoo v17</p> -->
       </div>
-      
+
       <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/phishing.html')">
         <img src="https://hipaatrek.com/wp-content/uploads/2018/12/Phishing-Dont-Take-the-Bait.png"
           alt="Ciberseguretat">
@@ -864,6 +950,34 @@
       });
     });
   </script>
+<script>
+  const stackTechs = [
+    { name: "Linux",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+    { name: "Windows Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
+    { name: "Docker",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    { name: "Apache",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
+    { name: "C#",             icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+    { name: "HTML5",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    { name: "CSS3",           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { name: "JavaScript",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: "MySQL",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+    { name: "MongoDB",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+    { name: "Git",            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    { name: "GitHub",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+    { name: "VS Code",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+    { name: "Bash",           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
+    { name: "VirtualBox",     icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" },
+    { name: "Wireshark",      icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
+  ];
+
+  const stackTrack = document.getElementById('stack-track');
+  [...stackTechs, ...stackTechs].forEach(t => {
+    const pill = document.createElement('div');
+    pill.className = 'tech-pill';
+    pill.innerHTML = `<img src="${t.icon}" alt="${t.name}" onerror="this.style.display='none'"><span>${t.name}</span>`;
+    stackTrack.appendChild(pill);
+  });
+</script>
 
 </body>
 
