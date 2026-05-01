@@ -13,6 +13,28 @@
 </head>
 
 <body id="top">
+
+  <button class="fab-cv" id="fab-cv">Veure CV</button>
+
+  <!-- Modal visor -->
+  <div id="cv-modal"
+    style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:9999; align-items:center; justify-content:center;">
+    <div
+      style="background:#1a1a1a; border-radius:12px; width:90%; max-width:860px; height:90vh; display:flex; flex-direction:column; overflow:hidden; border:1px solid rgba(155,89,182,0.3);">
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid rgba(155,89,182,0.2);">
+        <span style="color:#ccc; font-family:'DM Sans',sans-serif; font-size:0.95rem;">CV — Isaac Guisset</span>
+        <div style="display:flex; gap:10px;">
+          <a href="https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf" download
+            style="background:#9b59b6; color:#fff; padding:6px 14px; border-radius:20px; font-size:0.85rem; text-decoration:none; font-family:'DM Sans',sans-serif;">Descarregar</a>
+          <button id="close-cv"
+            style="background:none; border:none; color:#ccc; font-size:1.4rem; cursor:pointer; line-height:1;">×</button>
+        </div>
+      </div>
+      <iframe src="https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf"
+        style="flex:1; border:none; width:100%;"></iframe>
+    </div>
+  </div>
   <header class="nav-header">
     <div class="nav-container">
       <div class="logo">Isaac Guisset</div>
@@ -32,7 +54,8 @@
   <div class="hero">
     <h1 id="greeting"></h1>
     <p id="time"></p>
-    <p style="margin-top:10px; font-size:1.2rem; color:#bbb;">Benvinguts al portfoli de Isaac Guisset Sánchez</p>
+    <p style="margin-top:10px; font-size:1.2rem; color:#bbb;">Benvinguts al meu portfoli digital</p>
+
 
     <div class="arrow" onclick="document.getElementById('projectes').scrollIntoView({behavior:'smooth'});">↓</div>
   </div>
@@ -51,8 +74,11 @@
         <p>CFGM Sistemes Microinformàtics i Xarxes - 9/2023 -- 6/2025</p>
         <p>CFGS Desenvolupament d'Aplicacions Web - 9/2025 -- Actualitat</p>
         <br>
-        <p>Sóc un estudiant apassionat de la informàtica i la tecnologia, amb especial interès en servidors i
-          administració de sistemes.</p>
+        <p>Sóc estudiant de DAW amb base en sistemes i xarxes.</p>
+        <p>M’interessa especialment l’administració de sistemes i el desplegament de serveis, àmbit en el qual ja he
+          treballat amb entorns Linux.</p>
+        <p>Actualment estic ampliant coneixements en desenvolupament web i començant a introduir-me en el món DevOps.
+        </p>
       </div>
     </div>
   </section>
@@ -104,10 +130,10 @@
 
   <section id="projectes">
     <h2>Projectes</h2>
-    <p style="text-align:center; font-style:italic; color:#aaa; margin-top:20px; margin-bottom: 30px;">
+    <!-- <p style="text-align:center; font-style:italic; color:#aaa; margin-top:20px; margin-bottom: 30px;">
       Properament afegiré contingut i altres projectes en aquesta secció ja que actualment estic documentant i
       treballant en ells.
-    </p>
+    </p> -->
 
     <div class="cards">
 
@@ -141,7 +167,8 @@
       </div>
       <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/404.html'">
         <span class="badge badge-wip"> En curs</span>
-        <img src="https://user-images.githubusercontent.com/9206310/109428878-ff618a00-79c6-11eb-8207-d9d7bef4a12b.png" alt="Nextcloud">
+        <img src="https://user-images.githubusercontent.com/9206310/109428878-ff618a00-79c6-11eb-8207-d9d7bef4a12b.png"
+          alt="Nextcloud">
         <h3>Nextcloud</h3>
         <p class="project-desc">Nextcloud personal amb sincronització de fitxers entre portàtil/móbil i servidor.</p>
         <div class="project-tags">
@@ -160,15 +187,8 @@
         <span class="tag">ADO.NET</span>
         <span class="tag">Entity Framework</span>
         <span class="tag">Docker</span>
-
-
       </div>
     </div>
-
-
-
-
-
     </div>
   </section>
 
@@ -277,7 +297,7 @@
     <h2>Contacte & CV</h2>
     <div class="contact">
       <a class="btn" href="mailto:guissetisaac@gmail.com">Enviar Correu</a>
-      <a class="btn" href="/arxius/Isaac_Guisset-CV-Cat.pdf">Veure CV</a>
+      <a class="btn" href="https://isaacguisset.com/arxius/cv.html" target="_blank">Veure CV</a>
       <br>
       <a class="btn" href="https://github.com/isaacguisset">
         <img src="https://cdn-icons-png.flaticon.com/256/25/25231.png" alt="Github" style="width:24px; height:24px;">
@@ -307,12 +327,32 @@
   </div>
   <footer
     style="background:#2a2a2a; text-align:center; padding:20px; margin-top:50px; color:#ccc; font-size:0.9rem; border-top: 1px solid rgba(155, 89, 182, 0.3);">
-    <p>&copy; 2025 Isaac Guisset Sànchez · Tots els drets reservats</p>
+    <p>&copy; 2026 Isaac Guisset Sànchez · Tots els drets reservats</p>
     <p>
       <a href="mailto:guissetisaac@gmail.com" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Contacte</a> |
       <a href="#top" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Tornar amunt ↑</a>
     </p>
   </footer>
+  <script>
+    const fabCv = document.getElementById('fab-cv');
+    const cvModal = document.getElementById('cv-modal');
+    const closeCv = document.getElementById('close-cv');
+
+    fabCv.addEventListener('click', () => {
+      cvModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+    closeCv.addEventListener('click', () => {
+      cvModal.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+    cvModal.addEventListener('click', (e) => {
+      if (e.target === cvModal) {
+        cvModal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const fills = document.querySelectorAll(".skill-bar-fill");
@@ -410,16 +450,17 @@
     });
   </script>
   <script>
-    /*Falta afegir-ne més*/
     const stackTechs = [
       { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      { name: "Windows", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
       { name: "Windows Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
+      { name: "Ubuntu Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" },
       { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
       { name: "Apache", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
       { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
-      { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-      { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "Rsync", icon: "https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Newrsynclogo.png/250px-Newrsynclogo.png" },
       { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
       { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
       { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
@@ -428,6 +469,8 @@
       { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
       { name: "VirtualBox", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" },
       { name: "Wireshark", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
+      { name: "AWS", icon: "https://miro.medium.com/v2/resize:fit:1400/1*2lNGYaa8HhnVGpKy0RutFg.png" },
+
     ];
 
     const stackTrack = document.getElementById('stack-track');
