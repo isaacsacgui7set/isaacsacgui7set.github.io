@@ -25,14 +25,15 @@
         style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid rgba(155,89,182,0.2);">
         <span style="color:#ccc; font-family:'DM Sans',sans-serif; font-size:0.95rem;">CV — Isaac Guisset</span>
         <div style="display:flex; gap:10px;">
-          <a href="https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf" download
+          <a href="https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf" target="_blank"
             style="background:#9b59b6; color:#fff; padding:6px 14px; border-radius:20px; font-size:0.85rem; text-decoration:none; font-family:'DM Sans',sans-serif;">Descarregar</a>
           <button id="close-cv"
             style="background:none; border:none; color:#ccc; font-size:1.4rem; cursor:pointer; line-height:1;">×</button>
         </div>
       </div>
-      <iframe src="https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf"
-        style="flex:1; border:none; width:100%;"></iframe>
+      <iframe
+        src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf"
+        style="flex: 1; width: 100%; border: none;"></iframe>
     </div>
   </div>
   <header class="nav-header">
@@ -49,7 +50,6 @@
       </nav>
     </div>
   </header>
-
 
   <div class="hero">
     <h1 id="greeting"></h1>
@@ -180,15 +180,29 @@
       <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/404.html'">
         <span class="badge badge-wip"> En curs</span>
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" alt="Csharp">
-        <h3>C#</h3>
+        <h3>API Rest + Projecte Web + Base de dades</h3>
         <p class="project-desc">Projecte C# amb entorn de microserveis: API, Frontend web i MySQL, optimitzats per a
           desplegament amb contenidors Docker.</p> <span class="tag">C#</span>
-        <span class="tag">.NET</span>
-        <span class="tag">ADO.NET</span>
-        <span class="tag">Entity Framework</span>
-        <span class="tag">Docker</span>
+        <div class="project-tags">
+          <span class="tag">.NET</span>
+          <span class="tag">ADO.NET</span>
+          <span class="tag">Entity Framework</span>
+        </div>
       </div>
-    </div>
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/404.html'">
+        <span class="badge badge-done"> Completat</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" alt="Csharp">
+        <h3>Recull dels primers Projectes de console</h3>
+        <p class="project-desc">Recull de projectes (console) fets amb C#. Estan desplegats amb un docker per tal de que
+          es pugui interactuar amb ells</p> <span class="tag">C#</span>
+        <div class="project-tags">
+          <span class="tag">C#</span>
+          <span class="tag">Docker</span>
+          <span class="tag">ttyd</span>
+          <span class="tag">programació</span>
+
+        </div>
+      </div>
     </div>
   </section>
 
