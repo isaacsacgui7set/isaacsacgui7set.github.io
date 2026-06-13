@@ -5,503 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfoli digital - Isaac Guisset</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet">
   <link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
-  <style>
-    :root {
-      --color-bg1: #1d1d1d;
-      --color-bg2: #2a0d35;
-      --color-accent: #9b59b6;
-      --color-text: #f5f5f5;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: var(--color-bg1);
-      color: var(--color-text);
-      scroll-behavior: smooth;
-    }
-
-    .hero {
-      height: 100vh;
-      background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2));
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 0.5rem;
-      animation: fadeDown 1.2s ease forwards;
-    }
-
-    .hero p {
-      font-size: 1.5rem;
-      color: #ccc;
-      animation: fadeUp 1.5s ease forwards;
-    }
-
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .arrow {
-      position: absolute;
-      bottom: 30px;
-      font-size: 2rem;
-      color: var(--color-accent);
-      animation: bounce 2s infinite;
-      cursor: pointer;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(8px);
-      }
-    }
-
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 40px;
-      color: var(--color-accent);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #2a2a2a;
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.4s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 4px 20px rgba(155, 89, 182, 0.5);
-    }
-
-    .card img {
-      width: 60px;
-      margin-bottom: 15px;
-    }
-
-    .skills {
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .skill {
-      margin-bottom: 20px;
-    }
-
-    .skill-name {
-      margin-bottom: 5px;
-    }
-
-    .skill-bar {
-      background: #444;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .skill-bar-fill {
-      height: 12px;
-      background: var(--color-accent);
-      width: 0;
-      transition: width 1.2s ease;
-    }
-
-    .contact {
-      text-align: center;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 25px;
-      background: var(--color-accent);
-      color: #fff;
-      text-decoration: none;
-      margin: 10px;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #8e44ad;
-    }
-
-    /* Slider */
-    .slider {
-      max-width: 1000px;
-      margin: 40px auto 60px;
-      position: relative;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
-    }
-
-    .slider-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .slider-track img {
-      width: 100%;
-      flex-shrink: 0;
-      object-fit: cover;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    .slider-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--color-accent);
-      border: none;
-      padding: 10px 16px;
-      border-radius: 50%;
-      cursor: pointer;
-      color: white;
-      font-size: 1.5rem;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-      user-select: none;
-      z-index: 10;
-    }
-
-    .slider-button:hover {
-      opacity: 1;
-    }
-
-    .slider-button.prev {
-      left: 15px;
-    }
-
-    .slider-button.next {
-      right: 15px;
-    }
-
-    /* Botons Més info */
-    .info-btn {
-      margin-top: 8px;
-      padding: 5px 12px;
-      border: none;
-      background: var(--color-accent);
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .info-btn:hover {
-      background: #8e44ad;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: #2a2a2a;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 500px;
-      width: 90%;
-      color: var(--color-text);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      animation: fadeIn 0.3s ease;
-    }
-
-    .close {
-      float: right;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--color-accent);
-    }
-
-    .close:hover {
-      color: #fff;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .dynamic-island {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.8);
-      padding: 8px 16px;
-      border-radius: 999px;
-      color: #fff;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      z-index: 2000;
-      backdrop-filter: blur(6px);
-    }
-
-    .dynamic-island img {
-      display: inline-block;
-    }
-
-    #qui-soc .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 30px;
-      max-width: 900px;
-      margin: auto;
-      background: #2a2a2a;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(155, 89, 182, 0.3);
-    }
-
-    #qui-soc .about-image img {
-      width: 150px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 3px solid var(--color-accent);
-    }
-
-    #qui-soc .about-info {
-      flex: 1;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .dynamic-island a {
-      color: var(--color-text);
-      text-decoration: none;
-      padding: 6px 14px;
-      background: var(--color-accent);
-      border-radius: 20px;
-      transition: background 0.3s;
-      font-size: 0.95rem;
-    }
-
-    .dynamic-island a:hover {
-      background: #8e44ad;
-    }
-
-    /* 📱 Ajustes para móvil */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .dynamic-island {
-        flex-wrap: wrap;
-        gap: 6px;
-        font-size: 0.8rem;
-        padding: 6px 10px;
-        overflow-x: auto;
-      }
-
-      #qui-soc .about-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      #qui-soc .about-image img {
-        width: 120px;
-        height: 140px;
-      }
-
-      section {
-        padding: 60px 15px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .card h3 {
-        font-size: 1rem;
-      }
-
-      footer {
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .dynamic-island {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-    .nav-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 2000;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: bold;
-      color: var(--color-accent);
-      font-size: 1.1rem;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 15px;
-    }
-
-    .nav-menu a {
-      color: var(--color-text);
-      text-decoration: none;
-      background: var(--color-accent);
-      padding: 6px 14px;
-      border-radius: 20px;
-      transition: background 0.3s;
-      font-size: 0.9rem;
-    }
-
-    .nav-menu a:hover {
-      background: #8e44ad;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      color: var(--color-accent);
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .menu-toggle:hover {
-      color: #fff;
-    }
-
-    /* versio per móbil */
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        animation: fadeIn 0.3s ease;
-      }
-
-      .nav-menu.show {
-        display: flex;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="estils.css">
 </head>
 
 <body id="top">
+
+  <button class="fab-cv" id="fab-cv">Veure CV</button>
+
+  <div id="cv-modal"
+    style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:9999; align-items:center; justify-content:center;">
+    <div
+      style="background:#1a1a1a; border-radius:12px; width:90%; max-width:860px; height:90vh; display:flex; flex-direction:column; overflow:hidden; border:1px solid rgba(155,89,182,0.3);">
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid rgba(155,89,182,0.2);">
+        <span style="color:#ccc; font-family:'DM Sans',sans-serif; font-size:0.95rem;">CV — Isaac Guisset</span>
+        <div style="display:flex; gap:10px;">
+          <a href="https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf" target="_blank"
+            style="background:#9b59b6; color:#fff; padding:6px 14px; border-radius:20px; font-size:0.85rem; text-decoration:none; font-family:'DM Sans',sans-serif;">Descarregar</a>
+          <button id="close-cv"
+            style="background:none; border:none; color:#ccc; font-size:1.4rem; cursor:pointer; line-height:1;">×</button>
+        </div>
+      </div>
+      <iframe
+        src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf"
+        style="flex: 1; width: 100%; border: none;"></iframe>
+    </div>
+  </div>
   <header class="nav-header">
     <div class="nav-container">
       <div class="logo">Isaac Guisset</div>
@@ -517,11 +50,12 @@
     </div>
   </header>
 
-
   <div class="hero">
     <h1 id="greeting"></h1>
     <p id="time"></p>
-    <p style="margin-top:10px; font-size:1.2rem; color:#bbb;">Benvinguts al portfoli de Isaac Guisset Sánchez</p>
+    <p style="margin-top:10px; font-size:1.2rem; color:#bbb;">Benvinguts al meu portfoli digital</p>
+
+
     <div class="arrow" onclick="document.getElementById('projectes').scrollIntoView({behavior:'smooth'});">↓</div>
   </div>
   <section id="qui-soc">
@@ -539,9 +73,21 @@
         <p>CFGM Sistemes Microinformàtics i Xarxes - 9/2023 -- 6/2025</p>
         <p>CFGS Desenvolupament d'Aplicacions Web - 9/2025 -- Actualitat</p>
         <br>
-        <p>Sóc un estudiant apassionat de la informàtica i la tecnologia, amb especial interès en servidors i
-          administració de sistemes.</p>
+        <p>Sóc estudiant de DAW amb base en sistemes i xarxes.</p>
+        <p>M’interessa especialment l’administració de sistemes i el desplegament de serveis, àmbit en el qual ja he
+          treballat amb entorns Linux.</p>
+        <p>Actualment estic ampliant coneixements en desenvolupament web i començant a introduir-me en el món DevOps.
+        </p>
       </div>
+    </div>
+    
+  </section>
+  </section>
+
+  <section id="stack">
+    <h2>Stack Tecnològic</h2>
+    <div class="stack-track-wrapper">
+      <div class="stack-track" id="stack-track"></div>
     </div>
   </section>
   <section id="experiencia">
@@ -567,14 +113,6 @@
     <h2>Experiència Laboral</h2>
     <div class="timeline">
       <div class="timeline-item">
-        <h3><strong>Spotlio</strong> DevOps Engineer Intern - Girona</h3>
-        <span class="period">5/2026 - Actualitat</span>
-       <li>Configuració del portal intern de desenvolupadors utilitzant <strong>backstage</strong>.</li>
-    <li>Suport en la gestió i monitorització d'infraestructura cloud a <strong>AWS</strong>.</li>
-    <li>Administració de dispositius i control d'inventari tecnològic a través de <strong>JAMF</strong>.</li>
-      </div>
-      <br>
-      <div class="timeline-item">
         <h3>CFA Maria Verdaguer (Pràctiques) - Figueres</h3>
         <span class="period">10/2024 - 5/2025 (383h)</span>
         <p>Pràctiques de CFGM: configuració de xarxes, instal·lació de sistemes operatius, atenció a l'usuari i
@@ -591,49 +129,81 @@
     </div>
   </section>
 
-
-
   <section id="projectes">
     <h2>Projectes</h2>
-    <p style="text-align:center; font-style:italic; color:#aaa; margin-top:20px; margin-bottom: 10px;">
-      Properament afegiré contingut i altres projectes en aquesta seccio ja que actualment estic documentant i
+    <!-- <p style="text-align:center; font-style:italic; color:#aaa; margin-top:20px; margin-bottom: 30px;">
+      Properament afegiré contingut i altres projectes en aquesta secció ja que actualment estic documentant i
       treballant en ells.
-    </p>
+    </p> -->
 
     <div class="cards">
-      <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/servidor.html')">
+
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/servidor.html'">
+        <span class="badge badge-done"> Completat</span>
         <img
           src="https://image.made-in-china.com/2f0j00JfbcwGIhSCkd/High-Quality-DELL-Precision-5820-Tower-Workstation.jpg"
           alt="Servidor">
         <h3>Servidor</h3>
-        <!-- <p>Inicis del servidor i algunes de les funcions que té.</p> -->
+        <p class="project-desc">Servidor propi amb diversos serveis desplegats: web, notificacions, monitorització i
+          còpies de seguretat.</p>
+        <div class="project-tags">
+          <span class="tag">Ubuntu Server</span>
+          <span class="tag">Apache</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Gotify</span>
+        </div>
       </div>
 
-      <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/odoo.html')">
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/odoo.html'">
+        <span class="badge badge-done"> Completat</span>
         <img src="https://cdn.worldvectorlogo.com/logos/odoo.svg" alt="Odoo">
         <h3>ERP Odoo</h3>
-        <!-- <p>Projecte de síntesi SMX2 de l'ERP Odoo v17</p> -->
+        <p class="project-desc">Projecte de síntesi del CFGM: instal·lació i configuració de l'ERP Odoo v17 en entorn
+          Linux.</p>
+        <div class="project-tags">
+          <span class="tag">Odoo v17</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Linux</span>
+        </div>
       </div>
-
-      <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/phishing.html')">
-        <img src="https://hipaatrek.com/wp-content/uploads/2018/12/Phishing-Dont-Take-the-Bait.png"
-          alt="Ciberseguretat">
-        <h3>Treball ciberseguretat<br>(phising)</h3>
-        <!-- <p>Explicació i documentació del treball relacionat amb el phising.</p> -->
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/404.html'">
+        <span class="badge badge-wip"> En curs</span>
+        <img src="https://user-images.githubusercontent.com/9206310/109428878-ff618a00-79c6-11eb-8207-d9d7bef4a12b.png"
+          alt="Nextcloud">
+        <h3>Nextcloud</h3>
+        <p class="project-desc">Nextcloud personal amb sincronització de fitxers entre portàtil/móbil i servidor.</p>
+        <div class="project-tags">
+          <span class="tag">Nextcloud</span>
+          <span class="tag">Cópies de seguretat</span>
+          <span class="tag">Snap</span>
+        </div>
       </div>
-
-      <div class="card" onclick="window.location.href=('https://isaacguisset.com/pagines/gotify.html')">
-        <img src="https://gotify.net/img/logo.png" alt="Gotify">
-        <h3>Gotify</h3>
-        <!-- <p>Instal·lació i configuració de gotify per tal de rebre alertes relacionades amb diversos serveis desplegats dins el servidor.</p> -->
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/csharpApiWeb.html'">
+        <span class="badge badge-wip"> En curs</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" alt="Csharp">
+        <h3>API Rest + Projecte Web + Base de dades</h3>
+        <p class="project-desc">Projecte C# amb entorn de microserveis: API, Frontend web i MySQL, optimitzats per a
+          desplegament amb contenidors Docker.</p> <span class="tag">C#</span>
+        <div class="project-tags">
+          <span class="tag">.NET</span>
+          <span class="tag">ADO.NET</span>
+          <span class="tag">Entity Framework</span>
+        </div>
       </div>
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/csharpConsole.html'">
+        <span class="badge badge-done"> Completat</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" alt="Csharp">
+        <h3>Recull dels primers Projectes de console</h3>
+        <p class="project-desc">Recull de projectes (console) fets amb C#. Estan desplegats amb un docker per tal de que
+          es pugui interactuar amb ells</p> <span class="tag">C#</span>
+        <div class="project-tags">
+          <span class="tag">C#</span>
+          <span class="tag">Docker</span>
+          <span class="tag">ttyd</span>
+          <span class="tag">programació</span>
 
-      <!-- <div class="card">
-        <img src="https://www.grupopancorbo.com/wp-content/uploads/2023/09/IG_mantenimientosistemas23.png"
-          alt="Eines de gestió del servidor">
-        <h3>Eines de gestió del servidor</h3>
-        <p>Documentació de les eines que utilitzo per gestionar el servidor, fer cópies de seguretat, accedir-hi remotament...</p>
-      </div> -->
+        </div>
+      </div>
     </div>
   </section>
 
@@ -742,7 +312,7 @@
     <h2>Contacte & CV</h2>
     <div class="contact">
       <a class="btn" href="mailto:guissetisaac@gmail.com">Enviar Correu</a>
-      <a class="btn" href="/arxius/Isaac_Guisset-CV-Cat.pdf">Veure CV</a>
+      <a class="btn" href="https://isaacguisset.com/arxius/cv.html" target="_blank">Veure CV</a>
       <br>
       <a class="btn" href="https://github.com/isaacguisset">
         <img src="https://cdn-icons-png.flaticon.com/256/25/25231.png" alt="Github" style="width:24px; height:24px;">
@@ -772,12 +342,32 @@
   </div>
   <footer
     style="background:#2a2a2a; text-align:center; padding:20px; margin-top:50px; color:#ccc; font-size:0.9rem; border-top: 1px solid rgba(155, 89, 182, 0.3);">
-    <p>&copy; 2025 Isaac Guisset Sànchez · Tots els drets reservats</p>
+    <p>&copy; 2026 Isaac Guisset Sànchez · Tots els drets reservats</p>
     <p>
       <a href="mailto:guissetisaac@gmail.com" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Contacte</a> |
       <a href="#top" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Tornar amunt ↑</a>
     </p>
   </footer>
+  <script>
+    const fabCv = document.getElementById('fab-cv');
+    const cvModal = document.getElementById('cv-modal');
+    const closeCv = document.getElementById('close-cv');
+
+    fabCv.addEventListener('click', () => {
+      cvModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+    closeCv.addEventListener('click', () => {
+      cvModal.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+    cvModal.addEventListener('click', (e) => {
+      if (e.target === cvModal) {
+        cvModal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const fills = document.querySelectorAll(".skill-bar-fill");
@@ -872,6 +462,38 @@
       link.addEventListener('click', () => {
         navMenu.classList.remove('show');
       });
+    });
+  </script>
+  <script>
+    const stackTechs = [
+      { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      { name: "Windows", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
+      { name: "Windows Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
+      { name: "Ubuntu Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" },
+      { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Apache", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
+      { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+      { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "Rsync", icon: "https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Newrsynclogo.png/250px-Newrsynclogo.png" },
+      { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+      { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
+      { name: "VirtualBox", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" },
+      { name: "Wireshark", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
+      { name: "AWS", icon: "https://miro.medium.com/v2/resize:fit:1400/1*2lNGYaa8HhnVGpKy0RutFg.png" },
+
+    ];
+
+    const stackTrack = document.getElementById('stack-track');
+    [...stackTechs, ...stackTechs].forEach(t => {
+      const pill = document.createElement('div');
+      pill.className = 'tech-pill';
+      pill.innerHTML = `<img src="${t.icon}" alt="${t.name}" onerror="this.style.display='none'"><span>${t.name}</span>`;
+      stackTrack.appendChild(pill);
     });
   </script>
 

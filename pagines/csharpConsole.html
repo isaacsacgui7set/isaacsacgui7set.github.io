@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfoli digital - Isaac Guisset</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
+    <link rel="stylesheet" href="https://isaacguisset.com/estils.css">
+</head>
+
+<body id="top">
+    <header class="nav-header">
+        <div class="nav-container">
+            <div class="logo">Isaac Guisset</div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Obrir menú">☰</button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="https://isaacguisset.com/">Inici</a>
+                <a href="https://isaacguisset.com/#qui-soc">Qui sóc</a>
+                <a href="https://isaacguisset.com/#experiencia">Experiència</a>
+                <a href="https://isaacguisset.com/#projectes">Projectes</a>
+                <a href="https://isaacguisset.com/#habilitats">Habilitats</a>
+                <a href="https://isaacguisset.com/#contacte">Contacte</a>
+            </nav>
+        </div>
+    </header>
+    <main class="portfolio-main">
+        <section id="projectes" class="container">
+            <h2 class="section-title">Projectes interactius</h2>
+
+            <div class="showcase-grid">
+                <div class="project-info">
+                    <div class="selector-vertical">
+                        <button class="sel-btn active" onclick="updateProject('cavallers', this)">
+                            <i class="icon"></i> Cavallers C#
+                        </button>
+
+                         <button class="sel-btn active" onclick="updateProject('vaixells', this)">
+                            <i class="icon"></i> Vaixells C#
+                        </button>
+                       
+                    </div>
+
+                    <div class="project-details">
+                        <h3 id="proj-title">Projecte Cavallers</h3>
+                        <div class="tech-tags">
+                            <span>.NET 10</span> <span>Docker</span> <span>ttyd</span>
+                        </div>
+                        <div id="proj-desc" class="readme-style">
+                            <p>Carregant documentació...</p>
+                        </div>
+                        <a id="proj-github" href="#" target="_blank" class="github-link">Veure a GitHub</a>
+                    </div>
+                </div>
+
+                <div class="browser-window">
+                    <div class="browser-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <iframe id="main-frame" src="url" frameborder="0"></iframe>
+                </div>
+
+
+
+
+        </section>
+    </main>
+
+    <script>
+        //puc passargithub: "https://github.com en el futur quan vulgui linkejar les pagines"
+
+const projectsData = {
+    cavallers: {
+        title: "Dels Cavallers a C#",
+        desc: "",
+        url: "https://cavallers-csharp.isaacguisset.com",
+    },
+    vaixells:{
+        title:"Vaixells",
+        desc:"",
+        url:"https://vaixells-csharp.isaacguisset.com",
+    },
+     vaixells:{
+        title:"Vaixells",
+        desc:"",
+        url:"https://vaixells-csharp.isaacguisset.com",
+    }
+   
+};
+
+function updateProject(key, element) {
+    const data = projectsData[key];
+    
+    const frame = document.getElementById('main-frame');
+    if(frame) frame.src = data.url;
+    
+    document.getElementById('proj-title').innerText = data.title;
+    document.getElementById('proj-desc').innerHTML = `<p>${data.desc}</p>`;
+    document.getElementById('proj-github').href = data.github;
+
+    document.querySelectorAll('.sel-btn').forEach(btn => btn.classList.remove('active'));
+    element.classList.add('active');
+}
+
+window.onload = () => {
+    const firstBtn = document.querySelector('.sel-btn.active');
+    if(firstBtn) updateProject('cavallers', firstBtn);
+};
+</script>
+
+
+    <footer
+        style="background:#2a2a2a; text-align:center; padding:20px; margin-top:50px; color:#ccc; font-size:0.9rem; border-top: 1px solid rgba(155, 89, 182, 0.3);">
+        <p>&copy; 2026 Isaac Guisset Sànchez · Tots els drets reservats</p>
+        <p>
+            <a href="mailto:guissetisaac@gmail.com"
+                style="color:#9b59b6; text-decoration:none; margin:0 8px;">Contacte</a> |
+            <a href="#top" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Tornar amunt ↑</a>
+        </p>
+    </footer>
+
+
+</body>
+
+</html>
