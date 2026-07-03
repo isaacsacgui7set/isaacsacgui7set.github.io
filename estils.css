@@ -21,6 +21,7 @@
 
     .hero {
       height: 100vh;
+      padding-top: 60px; /* compensa la navbar fixa */
       background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2));
       display: flex;
       flex-direction: column;
