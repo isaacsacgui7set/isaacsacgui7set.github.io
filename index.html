@@ -573,6 +573,95 @@
       padding: 2px 10px;
       border-radius: 12px;
     }
+
+    /* === Tech Stack Bar === */
+    .stack-section {
+      padding: 30px 0;
+      overflow: hidden;
+      background: rgba(0,0,0,0.25);
+      border-top: 1px solid rgba(155,89,182,0.2);
+      border-bottom: 1px solid rgba(155,89,182,0.2);
+    }
+
+    .stack-section h2 {
+      text-align: center;
+      font-size: 1rem;
+      color: #888;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .stack-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .stack-wrapper::before,
+    .stack-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .stack-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, #1d1d1d, transparent);
+    }
+
+    .stack-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, #1d1d1d, transparent);
+    }
+
+    #stack-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      animation: marquee 35s linear infinite;
+    }
+
+    #stack-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .tech-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #2a2a2a;
+      border: 1px solid rgba(155,89,182,0.3);
+      border-radius: 999px;
+      padding: 8px 18px;
+      white-space: nowrap;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      cursor: default;
+    }
+
+    .tech-pill:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 12px rgba(155,89,182,0.4);
+    }
+
+    .tech-pill img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .tech-pill span {
+      font-size: 0.85rem;
+      color: var(--color-text);
+    }
   </style>
 </head>
 
@@ -592,6 +681,14 @@
     </div>
   </header>
 
+
+  <!-- Tech Stack Bar -->
+  <div class="stack-section">
+    <h2>Stack tecnològic</h2>
+    <div class="stack-wrapper">
+      <div id="stack-track"></div>
+    </div>
+  </div>
 
   <div class="hero">
     <h1 id="greeting"></h1>
@@ -947,6 +1044,38 @@
       link.addEventListener('click', () => {
         navMenu.classList.remove('show');
       });
+    });
+  </script>
+  <script>
+    const stackTechs = [
+      { name: "Linux",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      { name: "Windows",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
+      { name: "Windows Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
+      { name: "Ubuntu Server",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" },
+      { name: "Docker",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Apache",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
+      { name: "C#",             icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+      { name: "HTML",           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS",            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "Rsync",          icon: "https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Newrsynclogo.png/250px-Newrsynclogo.png" },
+      { name: "MySQL",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "MongoDB",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Git",            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "GitHub",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      { name: "VS Code",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+      { name: "Bash",           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
+      { name: "VirtualBox",     icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" },
+      { name: "Wireshark",      icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
+      { name: "AWS",            icon: "https://miro.medium.com/v2/resize:fit:1400/1*2lNGYaa8HhnVGpKy0RutFg.png" },
+    ];
+
+    const stackTrack = document.getElementById('stack-track');
+    // Duplicar per fer el loop infinit sense salt visual
+    [...stackTechs, ...stackTechs].forEach(t => {
+      const pill = document.createElement('div');
+      pill.className = 'tech-pill';
+      pill.innerHTML = `<img src="${t.icon}" alt="${t.name}" onerror="this.style.display='none'"><span>${t.name}</span>`;
+      stackTrack.appendChild(pill);
     });
   </script>
 
