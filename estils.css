@@ -486,5 +486,19 @@ section h2::after {
 .fab-cv {
   position: fixed;
   bottom: 30px; right: 30px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 25px;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px 20px var(--color-primary-glow);
   z-index: 999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.fab-cv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(236, 72, 153, 0.4);
 }

@@ -11,6 +11,28 @@
 </head>
 <body id="top">
 
+  <button class="fab-cv" id="fab-cv">Veure CV</button>
+
+  <div id="cv-modal"
+    style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:9999; align-items:center; justify-content:center;">
+    <div
+      style="background:#1a1a1a; border-radius:12px; width:90%; max-width:860px; height:90vh; display:flex; flex-direction:column; overflow:hidden; border:1px solid rgba(155,89,182,0.3);">
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid rgba(155,89,182,0.2);">
+        <span style="color:#ccc; font-family:'DM Sans',sans-serif; font-size:0.95rem;">CV — Isaac Guisset</span>
+        <div style="display:flex; gap:10px;">
+          <a href="https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf" target="_blank"
+            style="background:#9b59b6; color:#fff; padding:6px 14px; border-radius:20px; font-size:0.85rem; text-decoration:none; font-family:'DM Sans',sans-serif;">Descarregar</a>
+          <button id="close-cv"
+            style="background:none; border:none; color:#ccc; font-size:1.4rem; cursor:pointer; line-height:1;">×</button>
+        </div>
+      </div>
+      <iframe
+        src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf"
+        style="flex: 1; width: 100%; border: none;"></iframe>
+    </div>
+  </div>
+
   <!-- Navegació -->
   <header class="nav-header">
     <div class="nav-container">
@@ -28,9 +50,10 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="time-greeting" id="greeting">Hola!</div>
+    <div class="time-greeting">Sóc l'Isaac Guisset</div>
+    <div id="time" style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-primary); margin-bottom: 20px; letter-spacing: 2px;"></div>
     <h1>Desenvolupador Web & DevOps</h1>
-    <p>Apassionad de l'administració de sistemes, el desplegament de serveis i la creació d'aplicacions modernes i escalables. Benvingut al meu espai digital.</p>
+    <p>Apassionat de l'administració de sistemes, el desplegament de serveis i la creació d'aplicacions modernes i escalables. Benvingut al meu espai digital.</p>
     <div style="margin-top: 40px;">
       <a href="#sobre-mi" class="btn-primary">Descobreix més</a>
     </div>
@@ -42,7 +65,7 @@
     <div class="personal-grid" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
       
       <div class="personal-card">
-        <img src="https://imatges.isaacguisset.com/DatacenterBarcelona.png" alt="Homelab i Servidors" style="height: 350px;">
+        <img src="https://pub-a3fc74fd6b0a4dc99f50bee87c5cf084.r2.dev/Portfoli/DatacenterBarcelona.png" alt="Homelab i Servidors" style="height: 350px;">
         <div class="personal-card-content">
           <h3>Sistemes, Homelabs i Cloud</h3>
           <p>La meva passió per la informàtica va més enllà de l'horari laboral i acadèmic. Gaudeixo muntant la meva pròpia infraestructura de servidors (homelab), experimentant amb noves configuracions de xarxa, tecnologies de contenidors (Docker, Kubernetes) i provant nous entorns de desplegament al núvol. Aquest aprenentatge continu em permet afrontar reptes complexos i entendre tota l'arquitectura d'una aplicació, des del codi fins a la infraestructura física.</p>
@@ -128,6 +151,48 @@
     </div>
   </section>
 
+  <section id="habilitats">
+    <h2>Habilitats</h2>
+    <div class="skills" style="max-width: 800px; margin: 0 auto;">
+      <div class="skill">
+        <div class="skill-name" style="margin-bottom: 5px;">Administració de servidors Windows/Linux</div>
+        <div class="skill-bar" style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+          <div class="skill-bar-fill" data-fill="90%" style="height: 12px; background: var(--color-primary); width: 0; transition: width 1.2s ease;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name" style="margin-bottom: 5px;">Configuració de serveis: DNS, DHCP, SMTP, HTTP/HTTPS</div>
+        <div class="skill-bar" style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+          <div class="skill-bar-fill" data-fill="85%" style="height: 12px; background: var(--color-primary); width: 0; transition: width 1.2s ease;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name" style="margin-bottom: 5px;">Instal·lació de SO i suport usuari final</div>
+        <div class="skill-bar" style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+          <div class="skill-bar-fill" data-fill="75%" style="height: 12px; background: var(--color-primary); width: 0; transition: width 1.2s ease;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name" style="margin-bottom: 5px;">Xarxes i seguretat (VLANs, Firewalls)</div>
+        <div class="skill-bar" style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+          <div class="skill-bar-fill" data-fill="65%" style="height: 12px; background: var(--color-primary); width: 0; transition: width 1.2s ease;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name" style="margin-bottom: 5px;">Virtualització i contenidors</div>
+        <div class="skill-bar" style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+          <div class="skill-bar-fill" data-fill="45%" style="height: 12px; background: var(--color-primary); width: 0; transition: width 1.2s ease;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name" style="margin-bottom: 5px;">Programació C# .NET</div>
+        <div class="skill-bar" style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+          <div class="skill-bar-fill" data-fill="25%" style="height: 12px; background: var(--color-primary); width: 0; transition: width 1.2s ease;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Stack Tecnològic -->
   <section id="stack" style="padding-top: 0;">
     <h2 style="font-size: 2rem;">Tecnologies</h2>
@@ -152,17 +217,6 @@
       document.getElementById('nav-menu').classList.toggle('show');
     });
 
-    // Time Greeting
-    function updateGreeting() {
-      const h = new Date().getHours();
-      let g = "Hola!";
-      if (h >= 5 && h < 13) g = "Bon dia!";
-      else if (h >= 13 && h < 19) g = "Bona tarda!";
-      else g = "Bona nit!";
-      document.getElementById('greeting').textContent = g;
-    }
-    updateGreeting();
-
     // Stack Track Generator
     const stackTechs = [
       { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
@@ -182,6 +236,49 @@
       pill.innerHTML = `<img src="${t.icon}" alt="${t.name}"><span>${t.name}</span>`;
       track.appendChild(pill);
     });
+
+    // CV Modal Script
+    const fabCv = document.getElementById('fab-cv');
+    const cvModal = document.getElementById('cv-modal');
+    const closeCv = document.getElementById('close-cv');
+    if (fabCv && cvModal && closeCv) {
+      fabCv.addEventListener('click', () => {
+        cvModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+      closeCv.addEventListener('click', () => {
+        cvModal.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+      cvModal.addEventListener('click', (e) => {
+        if (e.target === cvModal) {
+          cvModal.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // Skills Progress Script
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        const fills = document.querySelectorAll(".skill-bar-fill");
+        fills.forEach(fill => {
+          fill.style.width = fill.getAttribute("data-fill");
+        });
+      }, 500); // L'animació comença poc després de carregar
+    });
+
+    // Rellotge
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      const timeEl = document.getElementById('time');
+      if (timeEl) timeEl.textContent = `${h}:${m}:${s}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
   </script>
 </body>
 </html>
