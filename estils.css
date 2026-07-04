@@ -502,3 +502,110 @@ section h2::after {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(236, 72, 153, 0.4);
 }
+/* === PROJECT CARDS === */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 50px;
+}
+.card {
+  background: var(--color-bg-light);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 4px 20px var(--color-primary-glow);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+.card img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+.badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+}
+.badge-done {
+  background: rgba(39, 174, 96, 0.15);
+  color: #2ecc71;
+  border: 1px solid rgba(39, 174, 96, 0.4);
+}
+.badge-wip {
+  background: rgba(230, 126, 34, 0.15);
+  color: #e67e22;
+  border: 1px solid rgba(230, 126, 34, 0.4);
+}
+.project-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: auto;
+}
+.tag {
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(168, 85, 247, 0.15);
+  color: var(--color-primary);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+/* Slider */
+.slider {
+  max-width: 1000px;
+  margin: 40px auto 60px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px var(--color-primary-glow);
+}
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.slider-track img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-primary);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  user-select: none;
+  z-index: 10;
+}
+.slider-button:hover { opacity: 1; }
+.slider-button.prev { left: 15px; }
+.slider-button.next { right: 15px; }

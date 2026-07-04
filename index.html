@@ -41,8 +41,7 @@
       <nav class="nav-menu" id="nav-menu">
         <a href="#top">Inici</a>
         <a href="#sobre-mi">Sobre mi</a>
-        <a href="#matriculaciones">Projectes</a>
-        <a href="#csharp">Lab C#</a>
+        <a href="#projectes">Projectes</a>
         <a href="#experiencia">Trajectòria</a>
       </nav>
     </div>
@@ -50,10 +49,10 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="time-greeting">Sóc l'Isaac Guisset</div>
+    <div class="time-greeting" id="greeting">Hola!</div>
     <div id="time" style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-primary); margin-bottom: 20px; letter-spacing: 2px;"></div>
     <h1>Desenvolupador Web & DevOps</h1>
-    <p>Apassionat de l'administració de sistemes, el desplegament de serveis i la creació d'aplicacions modernes i escalables. Benvingut al meu espai digital.</p>
+    <p>Aprenent de DevOps amb un fort interès en l'administració de sistemes i el desplegament de serveis.</p>
     <div style="margin-top: 40px;">
       <a href="#sobre-mi" class="btn-primary">Descobreix més</a>
     </div>
@@ -103,21 +102,72 @@
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt="Matriculaciones .NET" style="background:#1a1a1a; padding: 40px;">
       </div>
     </div>
-  </section>
 
-  <!-- Laboratori C# (Placeholder) -->
-  <section id="csharp">
-    <h2>Laboratori de C# (Properament)</h2>
-    <div class="csharp-placeholder">
-      <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Integració de projectes de consola web</h3>
-      <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
-        Estic treballant en resoldre una sèrie de reptes en C# i encapsular-los en contenidors Docker. 
-        Molt aviat podràs interactuar amb aquests programes de consola directament des d'aquesta pàgina web gràcies a una arquitectura de microserveis.
-      </p>
-      <br>
-      <div class="badge" style="display:inline-block; background:rgba(168, 85, 247, 0.2); color: var(--color-primary); padding: 8px 16px; border-radius: 20px;">En construcció</div>
+    <!-- Altres Projectes -->
+    <div class="cards" id="projectes" style="margin-top: 80px;">
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/servidor.html'">
+        <span class="badge badge-done"> Completat</span>
+        <img src="https://image.made-in-china.com/2f0j00JfbcwGIhSCkd/High-Quality-DELL-Precision-5820-Tower-Workstation.jpg" alt="Servidor">
+        <h3>Servidor</h3>
+        <p class="project-desc">Servidor propi amb diversos serveis desplegats: web, notificacions, monitorització i còpies de seguretat.</p>
+        <div class="project-tags">
+          <span class="tag">Ubuntu Server</span>
+          <span class="tag">Apache</span>
+          <span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/odoo.html'">
+        <span class="badge badge-done"> Completat</span>
+        <img src="https://cdn.worldvectorlogo.com/logos/odoo.svg" alt="Odoo">
+        <h3>ERP Odoo</h3>
+        <p class="project-desc">Projecte de síntesi del CFGM: instal·lació i configuració de l'ERP Odoo v17 en entorn Linux.</p>
+        <div class="project-tags">
+          <span class="tag">Odoo v17</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Linux</span>
+        </div>
+      </div>
+
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/404.html'">
+        <span class="badge badge-wip"> En curs</span>
+        <img src="https://user-images.githubusercontent.com/9206310/109428878-ff618a00-79c6-11eb-8207-d9d7bef4a12b.png" alt="Nextcloud">
+        <h3>Nextcloud</h3>
+        <p class="project-desc">Nextcloud personal amb sincronització de fitxers entre portàtil/móbil i servidor.</p>
+        <div class="project-tags">
+          <span class="tag">Nextcloud</span>
+          <span class="tag">Backups</span>
+        </div>
+      </div>
+
+      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/csharpConsole.html'">
+        <span class="badge badge-wip"> En curs</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" alt="Csharp">
+        <h3>Projectes de Consola C#</h3>
+        <p class="project-desc">Recull de projectes C# (consoles interactives). Properament desplegats amb Docker per interactuar via web.</p>
+        <div class="project-tags">
+          <span class="tag">C#</span>
+          <span class="tag">Docker</span>
+          <span class="tag">ttyd</span>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Slider Galeria -->
+  <div class="slider" aria-label="Galeria d'imatges">
+    <button class="slider-button prev" aria-label="Anterior">&lt;</button>
+    <div class="slider-track">
+      <img class="slide" src="imatges/slider/1.png" alt="Imatge 1" draggable="false" />
+      <img class="slide" src="imatges/slider/2.png" alt="Imatge 2" draggable="false" />
+      <img class="slide" src="imatges/slider/3.png" alt="Imatge 3" draggable="false" />
+      <img class="slide" src="imatges/slider/4.png" alt="Imatge 4" draggable="false" />
+      <img class="slide" src="imatges/slider/5.png" alt="Imatge 5" draggable="false" />
+      <img class="slide" src="imatges/slider/6.png" alt="Imatge 6" draggable="false" />
+      <img class="slide" src="imatges/slider/7.png" alt="Imatge 7" draggable="false" />
+    </div>
+    <button class="slider-button next" aria-label="Següent">&gt;</button>
+  </div>
 
   <!-- Trajectòria i Estudis -->
   <section id="experiencia">
@@ -182,6 +232,12 @@
         <div class="skill-name" style="margin-bottom: 5px;">Virtualització i contenidors</div>
         <div class="skill-bar" style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
           <div class="skill-bar-fill" data-fill="45%" style="height: 12px; background: var(--color-primary); width: 0; transition: width 1.2s ease;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <div class="skill-name" style="margin-bottom: 5px;">AI Training</div>
+        <div class="skill-bar" style="background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+          <div class="skill-bar-fill" data-fill="80%" style="height: 12px; background: var(--color-primary); width: 0; transition: width 1.2s ease;"></div>
         </div>
       </div>
       <div class="skill">
@@ -279,6 +335,39 @@
     }
     updateClock();
     setInterval(updateClock, 1000);
+
+    // Time Greeting
+    function updateGreeting() {
+      const h = new Date().getHours();
+      let g = "Hola!";
+      if (h >= 5 && h < 13) g = "Bon dia!";
+      else if (h >= 13 && h < 19) g = "Bona tarda!";
+      else g = "Bona nit!";
+      const greetingEl = document.getElementById('greeting');
+      if (greetingEl) greetingEl.textContent = g;
+    }
+    updateGreeting();
+
+    // Slider
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let index = 0;
+    const totalSlides = slides.length;
+    function updateSlider() {
+      if(sliderTrack) sliderTrack.style.transform = `translateX(${-index * 100}%)`;
+    }
+    if(prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        index = (index === 0) ? totalSlides - 1 : index - 1;
+        updateSlider();
+      });
+      nextBtn.addEventListener('click', () => {
+        index = (index === totalSlides - 1) ? 0 : index + 1;
+        updateSlider();
+      });
+    }
   </script>
 </body>
 </html>
