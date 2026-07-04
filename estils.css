@@ -150,6 +150,10 @@ a:hover {
   animation: slideUp 1s ease-out 0.4s backwards;
 }
 
+.hero .btn-primary-wrapper {
+  animation: slideUp 1s ease-out 0.6s backwards;
+}
+
 /* Sections */
 section {
   padding: 100px 20px;
@@ -370,20 +374,8 @@ section h2::after {
   overflow: hidden;
   padding: 40px 0;
   position: relative;
-}
-.stack-track-wrapper::before, .stack-track-wrapper::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0; width: 100px;
-  z-index: 2;
-}
-.stack-track-wrapper::before {
-  left: 0;
-  background: linear-gradient(to right, var(--color-bg-dark), transparent);
-}
-.stack-track-wrapper::after {
-  right: 0;
-  background: linear-gradient(to left, var(--color-bg-dark), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 100px, black calc(100% - 100px), transparent);
+  mask-image: linear-gradient(to right, transparent, black 100px, black calc(100% - 100px), transparent);
 }
 .stack-track {
   display: flex;
@@ -609,3 +601,60 @@ section h2::after {
 .slider-button:hover { opacity: 1; }
 .slider-button.prev { left: 15px; }
 .slider-button.next { right: 15px; }
+
+/* Botons Més info */
+.info-btn {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 5px 12px;
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+.info-btn:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+.modal-content {
+  background: var(--color-bg-light);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  max-width: 500px;
+  width: 90%;
+  color: var(--color-text);
+  box-shadow: 0 4px 30px var(--color-primary-glow);
+  animation: fadeIn 0.3s ease;
+}
+.close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+}
+.close:hover {
+  color: #fff;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
