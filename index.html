@@ -1,580 +1,211 @@
 <!DOCTYPE html>
 <html lang="ca">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfoli digital - Isaac Guisset</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap"
-    rel="stylesheet">
-  <link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estils.css">
-  <style>
-    /* === TIMELINE — inline per evitar caché del CDN === */
-    .timeline {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      padding-left: 36px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 8px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, #9b59b6, transparent);
-      border-radius: 3px;
-    }
-    .timeline-item {
-      padding: 16px 20px;
-      background: #2a2a2a;
-      border-radius: 10px;
-      margin-bottom: 16px;
-      position: relative;
-      border-left: 3px solid #9b59b6;
-      transition: box-shadow 0.3s;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -27px;
-      top: 18px;
-      width: 14px;
-      height: 14px;
-      background: #9b59b6;
-      border-radius: 50%;
-      border: 2px solid #1d1d1d;
-      z-index: 1;
-    }
-    .timeline-item:hover {
-      box-shadow: 0 4px 20px rgba(155, 89, 182, 0.4);
-    }
-    .timeline-item h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-      color: #f5f5f5;
-    }
-    .timeline-item p, .timeline-item li {
-      font-size: 0.9rem;
-      color: #ccc;
-      line-height: 1.6;
-    }
-    .timeline-item li { margin-left: 16px; }
-    .period {
-      display: inline-block;
-      margin-bottom: 8px;
-      font-size: 0.82rem;
-      color: #9b59b6;
-      background: rgba(155, 89, 182, 0.12);
-      padding: 2px 10px;
-      border-radius: 12px;
-    }
-  </style>
+  <link rel="icon" href="/imatges/icones/icon.png" type="image/png" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Per icones -->
 </head>
-
 <body id="top">
 
-  <button class="fab-cv" id="fab-cv">Veure CV</button>
-
-  <div id="cv-modal"
-    style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:9999; align-items:center; justify-content:center;">
-    <div
-      style="background:#1a1a1a; border-radius:12px; width:90%; max-width:860px; height:90vh; display:flex; flex-direction:column; overflow:hidden; border:1px solid rgba(155,89,182,0.3);">
-      <div
-        style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-bottom:1px solid rgba(155,89,182,0.2);">
-        <span style="color:#ccc; font-family:'DM Sans',sans-serif; font-size:0.95rem;">CV — Isaac Guisset</span>
-        <div style="display:flex; gap:10px;">
-          <a href="https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf" target="_blank"
-            style="background:#9b59b6; color:#fff; padding:6px 14px; border-radius:20px; font-size:0.85rem; text-decoration:none; font-family:'DM Sans',sans-serif;">Descarregar</a>
-          <button id="close-cv"
-            style="background:none; border:none; color:#ccc; font-size:1.4rem; cursor:pointer; line-height:1;">×</button>
-        </div>
-      </div>
-      <iframe
-        src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://isaacguisset.com/arxius/Isaac_Guisset-CV-Cat.pdf"
-        style="flex: 1; width: 100%; border: none;"></iframe>
-    </div>
-  </div>
+  <!-- Navegació -->
   <header class="nav-header">
     <div class="nav-container">
       <div class="logo">Isaac Guisset</div>
       <button class="menu-toggle" id="menu-toggle" aria-label="Obrir menú">☰</button>
       <nav class="nav-menu" id="nav-menu">
         <a href="#top">Inici</a>
-        <a href="#qui-soc">Qui sóc</a>
-        <a href="#experiencia">Experiència</a>
-        <a href="#projectes">Projectes</a>
-        <a href="#habilitats">Habilitats</a>
-        <a href="#contacte">Contacte</a>
+        <a href="#sobre-mi">Sobre mi</a>
+        <a href="#matriculaciones">Projectes</a>
+        <a href="#csharp">Lab C#</a>
+        <a href="#experiencia">Trajectòria</a>
       </nav>
     </div>
   </header>
 
-  <div class="hero">
-    <h1 id="greeting"></h1>
-    <p id="time"></p>
-    <p style="margin-top:10px; font-size:1.2rem; color:#bbb;">Benvinguts al meu portfoli digital</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="time-greeting" id="greeting">Hola!</div>
+    <h1>Desenvolupador Web & DevOps</h1>
+    <p>Apassionad de l'administració de sistemes, el desplegament de serveis i la creació d'aplicacions modernes i escalables. Benvingut al meu espai digital.</p>
+    <div style="margin-top: 40px;">
+      <a href="#sobre-mi" class="btn-primary">Descobreix més</a>
+    </div>
+  </section>
 
-
-    <div class="arrow" onclick="document.getElementById('projectes').scrollIntoView({behavior:'smooth'});">↓</div>
-  </div>
-  <section id="qui-soc">
-    <h2>Qui sóc</h2>
-    <div class="about-container">
-      <div class="about-image">
-        <img src="imatges/imatge cv.jpg" alt="Foto Isaac">
+  <!-- Sobre Mi / Aficions -->
+  <section id="sobre-mi">
+    <h2>Més enllà del codi</h2>
+    <div class="personal-grid">
+      
+      <div class="personal-card">
+        <img src="https://isaacguisset.com/MitjaViesVerdes2026.jpg" alt="Mitja Marató 2026">
+        <div class="personal-card-content">
+          <h3>Mitja Marató i Running</h3>
+          <p>M'apassiona córrer i posar-me a prova. Una fita recent: creuar la meta d'una mitja marató en 2h03min exactament amb el dorsal 203! Coincidència còsmica i molta motivació.</p>
+        </div>
       </div>
-      <div class="about-info">
-        <b>
-          <p>Isaac Guisset Sànchez</p>
-        </b>
-        <br>
-        <p>Educació Secundària Obligatória- 2019 -- 2023</p>
-        <p>CFGM Sistemes Microinformàtics i Xarxes - 9/2023 -- 6/2025</p>
-        <p>CFGS Desenvolupament d'Aplicacions Web - 9/2025 -- Actualitat</p>
-        <br>
-        <p>Sóc estudiant de DAW amb base en sistemes i xarxes.</p>
-        <p>M’interessa especialment l’administració de sistemes i el desplegament de serveis, àmbit en el qual ja he
-          treballat amb entorns Linux.</p>
-        <p>Actualment estic ampliant coneixements en desenvolupament web i començant a introduir-me en el món DevOps.
-        </p>
+
+      <div class="personal-card">
+        <img src="https://isaacguisset.com/IsaacPantaBoadella.jpg" alt="Natura i Escalada">
+        <div class="personal-card-content">
+          <h3>Escalada i Natura</h3>
+          <p>Quan no estic davant d'una pantalla, soc a la muntanya. Ja sigui al bosc, prop d'un pantà o escalant. Connectar amb la natura és la meva millor manera de desconnectar.</p>
+        </div>
+      </div>
+
+      <div class="personal-card">
+        <img src="https://isaacguisset.com/DatacenterBarcelona.png" alt="Homelab i Servidors">
+        <div class="personal-card-content">
+          <h3>Homelabs i Sistemes</h3>
+          <p>El meu temps lliure també el passo "trastejant". M'encanta muntar els meus propis servidors, configurar xarxes, Docker i gestionar la meva infraestructura al núvol.</p>
+        </div>
+      </div>
+
+      <div class="personal-card">
+        <img src="https://isaacguisset.com/IsaacLlardafoc.jpeg" alt="Relax i Sèries">
+        <div class="personal-card-content">
+          <h3>Sèries i Llar de foc</h3>
+          <p>No tot és adrenalina. Les hores de tranquil·litat, una bona sèrie i la llar de foc són el complement perfecte per recuperar energia abans del proper projecte.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projecte Estrella: Matriculaciones.es -->
+  <section id="matriculaciones">
+    <h2>Projecte Destacat</h2>
+    <div class="featured-project">
+      <div class="featured-content">
+        <h3>matriculaciones.es <span class="badge">En Producció</span></h3>
+        <div class="featured-tags">
+          <span>C# .NET</span>
+          <span>Docker</span>
+          <span>CI/CD (GitHub Actions)</span>
+          <span>MySQL</span>
+          <span>SEO & Monetització</span>
+        </div>
+        <p>Una plataforma web completa dissenyada per gestionar i analitzar matrícules. Més enllà del codi, aquest projecte és una demostració d'arquitectura professional d'extrem a extrem.</p>
+        <p><strong>El que fa que aquest projecte destaqui:</strong></p>
+        <ul style="color: var(--color-text-muted); margin-left: 20px; margin-bottom: 20px; line-height: 1.8;">
+          <li><b>Desplegament automatitzat:</b> Ús de GitHub Actions per construir i desplegar contenidors Docker al meu propi servidor de producció.</li>
+          <li><b>Multidioma i Localització:</b> Sistema preparat per català, castellà i anglès.</li>
+          <li><b>Optimització SEO avançada:</b> Reestructuració per superar els requisits de Google AdSense (evitant el "thin content" i implementant estructures d'acordió).</li>
+          <li><b>Rendiment:</b> Base de dades optimitzada i integració amb un mapa interactiu personalitzat.</li>
+        </ul>
+        <a href="https://matriculaciones.es" target="_blank" class="btn-primary">Visitar el projecte</a>
+      </div>
+      <div class="featured-image">
+        <!-- Imatge representativa del projecte -->
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt="Matriculaciones .NET" style="background:#1a1a1a; padding: 40px;">
       </div>
     </div>
-    
-  </section>
   </section>
 
-  <section id="stack">
-    <h2>Stack Tecnològic</h2>
+  <!-- Laboratori C# (Placeholder) -->
+  <section id="csharp">
+    <h2>Laboratori de C# (Properament)</h2>
+    <div class="csharp-placeholder">
+      <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Integració de projectes de consola web</h3>
+      <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
+        Estic treballant en resoldre una sèrie de reptes en C# i encapsular-los en contenidors Docker. 
+        Molt aviat podràs interactuar amb aquests programes de consola directament des d'aquesta pàgina web gràcies a una arquitectura de microserveis.
+      </p>
+      <br>
+      <div class="badge" style="display:inline-block; background:rgba(168, 85, 247, 0.2); color: var(--color-primary); padding: 8px 16px; border-radius: 20px;">En construcció</div>
+    </div>
+  </section>
+
+  <!-- Trajectòria i Estudis -->
+  <section id="experiencia">
+    <h2>Trajectòria i Estudis</h2>
+    <div class="timeline">
+      
+      <div class="timeline-item">
+        <span class="period">5/2026 - Actualitat</span>
+        <h4>Spotlio - DevOps Engineer Intern</h4>
+        <p style="color:var(--color-text-muted);">Configuració del portal intern amb Backstage, gestió d'infraestructura cloud a AWS i administració d'inventari tecnològic amb JAMF.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="period">9/2025 - Actualitat</span>
+        <h4>CFGS Desenvolupament d'Aplicacions Web (DAW)</h4>
+        <p style="color:var(--color-text-muted);">Institut Cendrassos (Figueres).</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="period">10/2024 - 5/2025</span>
+        <h4>CFA Maria Verdaguer - IT Support (Pràctiques)</h4>
+        <p style="color:var(--color-text-muted);">Configuració de xarxes, instal·lació de SO i manteniment d'equips en entorn educatiu.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="period">9/2023 - 6/2025</span>
+        <h4>CFGM Sistemes Microinformàtics i Xarxes (SMX)</h4>
+        <p style="color:var(--color-text-muted);">Institut Cendrassos (Figueres). Projecte final de desplegament ERP Odoo.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Stack Tecnològic -->
+  <section id="stack" style="padding-top: 0;">
+    <h2 style="font-size: 2rem;">Tecnologies</h2>
     <div class="stack-track-wrapper">
       <div class="stack-track" id="stack-track"></div>
     </div>
   </section>
-  <section id="experiencia">
-    <h2>Estudis</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Desenvolupament d'aplicacions web CFGS DAW - Cendrassos(Figueres) </h3>
-        <span class="period">9/2025 - Actualitat</span>
-      </div>
-      <br>
-      <div class="timeline-item">
-        <h3>Sistemes Microinformàtics i Xarxes CFGM SMX - Cendrassos(Figueres) </h3>
-        <span class="period">9/2023 - 6/2025</span>
-      </div>
-      <br>
-      <div class="timeline-item">
-        <h3>Educació secundària obligatòria (ESO) IES de Celrà </h3>
-        <span class="period">9/2019 - 6/2023</span>
-      </div>
-    </div>
-  </section>
-  <section id="experiencia">
-    <h2>Experiència Laboral</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3><strong>Spotlio</strong> DevOps Engineer Intern - Girona</h3>
-        <span class="period">5/2026 - Actualitat</span>
-        <li>Configuració del portal intern de desenvolupadors utilitzant <strong>backstage</strong>.</li>
-        <li>Suport en la gestió i monitorització d'infraestructura cloud a <strong>AWS</strong>.</li>
-        <li>Administració de dispositius i control d'inventari tecnològic a través de <strong>JAMF</strong>.</li>
-      </div>
-      <br>
-      <div class="timeline-item">
-        <h3>CFA Maria Verdaguer (Pràctiques) - Figueres</h3>
-        <span class="period">10/2024 - 5/2025 (383h)</span>
-        <p>Pràctiques de CFGM: configuració de xarxes, instal·lació de sistemes operatius, atenció a l'usuari i
-          manteniment dels dispositius del centre.</p>
-      </div>
-      <br>
-      <div class="timeline-item">
-        <h3>Can ponac (Voluntariat) - Celrà</h3>
-        <span class="period">2022 (60 hores)</span>
-        <p>Formació a persones de la tercera edat en l’ús de dispositius mòbils i ordinadors. Explicació de funcions
-          bàsiques: ús de WhatsApp, configuració de correu electrònic, navegació segura per Internet i gestió de fotos.
-        </p>
-      </div>
-    </div>
-  </section>
 
-  <section id="projectes">
-    <h2>Projectes</h2>
-
-    <div class="cards">
-
-      <div class="card project-card" onclick="window.location.href='https://matriculaciones.es'">
-        <span class="badge badge-done"> Completat</span>
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt="matriculaciones.es">
-        <h3>matriculaciones.es</h3>
-        <p class="project-desc">Projecte final de 1r de DAW: aplicació web de gestió de matrícules publicada a Internet, amb API REST i base de dades.</p>
-        <div class="project-tags">
-          <span class="tag">C# .NET</span>
-          <span class="tag">ASP.NET MVC</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">Docker</span>
-        </div>
-      </div>
-
-      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/servidor.html'">
-        <span class="badge badge-done"> Completat</span>
-        <img
-          src="https://image.made-in-china.com/2f0j00JfbcwGIhSCkd/High-Quality-DELL-Precision-5820-Tower-Workstation.jpg"
-          alt="Servidor">
-        <h3>Servidor</h3>
-        <p class="project-desc">Servidor propi amb diversos serveis desplegats: web, notificacions, monitorització i
-          còpies de seguretat.</p>
-        <div class="project-tags">
-          <span class="tag">Ubuntu Server</span>
-          <span class="tag">Apache</span>
-          <span class="tag">Docker</span>
-          <span class="tag">Gotify</span>
-        </div>
-      </div>
-
-      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/odoo.html'">
-        <span class="badge badge-done"> Completat</span>
-        <img src="https://cdn.worldvectorlogo.com/logos/odoo.svg" alt="Odoo">
-        <h3>ERP Odoo</h3>
-        <p class="project-desc">Projecte de síntesi del CFGM: instal·lació i configuració de l'ERP Odoo v17 en entorn
-          Linux.</p>
-        <div class="project-tags">
-          <span class="tag">Odoo v17</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Linux</span>
-        </div>
-      </div>
-      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/404.html'">
-        <span class="badge badge-wip"> En curs</span>
-        <img src="https://user-images.githubusercontent.com/9206310/109428878-ff618a00-79c6-11eb-8207-d9d7bef4a12b.png"
-          alt="Nextcloud">
-        <h3>Nextcloud</h3>
-        <p class="project-desc">Nextcloud personal amb sincronització de fitxers entre portàtil/móbil i servidor.</p>
-        <div class="project-tags">
-          <span class="tag">Nextcloud</span>
-          <span class="tag">Cópies de seguretat</span>
-          <span class="tag">Snap</span>
-        </div>
-      </div>
-      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/csharpApiWeb.html'">
-        <span class="badge badge-wip"> En curs</span>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" alt="Csharp">
-        <h3>API Rest + Projecte Web + Base de dades</h3>
-        <p class="project-desc">Projecte C# amb entorn de microserveis: API, Frontend web i MySQL, optimitzats per a
-          desplegament amb contenidors Docker.</p> <span class="tag">C#</span>
-        <div class="project-tags">
-          <span class="tag">.NET</span>
-          <span class="tag">ADO.NET</span>
-          <span class="tag">Entity Framework</span>
-        </div>
-      </div>
-      <div class="card project-card" onclick="window.location.href='https://isaacguisset.com/pagines/csharpConsole.html'">
-        <span class="badge badge-done"> Completat</span>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" alt="Csharp">
-        <h3>Recull dels primers Projectes de console</h3>
-        <p class="project-desc">Recull de projectes (console) fets amb C#. Estan desplegats amb un docker per tal de que es pugui interactuar amb ells.</p>
-        <div class="project-tags">
-          <span class="tag">C#</span>
-          <span class="tag">Docker</span>
-          <span class="tag">ttyd</span>
-          <span class="tag">programació</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="slider" aria-label="Galeria d'imatges">
-    <button class="slider-button prev" aria-label="Anterior">&lt;</button>
-    <div class="slider-track">
-      <img class="slide" src="imatges/slider/1.png" alt="Imatge 1" draggable="false" />
-      <img class="slide" src="imatges/slider/2.png" alt="Imatge 2" draggable="false" />
-      <img class="slide" src="imatges/slider/3.png" alt="Imatge 3" draggable="false" />
-      <img class="slide" src="imatges/slider/4.png" alt="Imatge 4" draggable="false" />
-      <img class="slide" src="imatges/slider/5.png" alt="Imatge 5" draggable="false" />
-      <img class="slide" src="imatges/slider/6.png" alt="Imatge 6" draggable="false" />
-      <img class="slide" src="imatges/slider/7.png" alt="Imatge 7" draggable="false" />
-    </div>
-    <button class="slider-button next" aria-label="Següent">&gt;</button>
-  </div>
-  <section id="habilitats">
-    <h2>Habilitats</h2>
-    <div class="skills">
-
-      <!-- Windows/Linux -->
-      <div class="skill">
-        <div class="skill-name">Administració de servidors Windows/Linux</div>
-        <div class="skill-bar">
-          <div class="skill-bar-fill" data-fill="90%"></div>
-        </div>
-        <button class="info-btn" data-title="Administració Windows/Linux"
-          data-text="Administració i configuració de servidors Windows i Linux (Windows Server - Ubuntu Server), polítiques de grup, creació d'usuaris, unitats de xarxa...">Més
-          info</button>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Configuració de serveis: DNS, DHCP, SMTP, IMAP/POP3, HTTP/HTTPS, FTP</div>
-        <div class="skill-bar">
-          <div class="skill-bar-fill" data-fill="85%"></div>
-        </div>
-        <button class="info-btn" data-title="Configuració de serveis"
-          data-text="Configuració de BIND9 (DNS), isc-dhcp-server (DHCP), Postfix (SMTP) (IMAP/POP3), Apache (HTTP/HTTPS) i ProFTPD (FTP).">Més
-          info</button>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Instal·lació de sistemes operatius i configuració per l'usuari final</div>
-        <div class="skill-bar">
-          <div class="skill-bar-fill" data-fill="75%"></div>
-        </div>
-        <button class="info-btn" data-title="Instal·lació i configuració de SO"
-          data-text="Instal·lació de Windows i Linux, configuració inicial d'usuaris, paquets, programari, drivers i configuracions de seguretat bàsics per a l'usuari final com antivirus o firewall.">Més
-          info</button>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Monitorització i gestió</div>
-        <div class="skill-bar">
-          <div class="skill-bar-fill" data-fill="70%"></div>
-        </div>
-        <button class="info-btn" data-title="Monitorització i gestió"
-          data-text="He tocat algunes eines com Cockpit o cacti per supervisar servidors, serveis i recursos de xarxa.">Més
-          info</button>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Xarxes i seguretat</div>
-        <div class="skill-bar">
-          <div class="skill-bar-fill" data-fill="65%"></div>
-        </div>
-        <button class="info-btn" data-title="Xarxes i seguretat"
-          data-text="Configuració de VLANs, tallafocs (iptables/ufw), VPNs, routing bàsic i monitorització de tràfic amb Wireshark.">Més
-          info</button>
-      </div>
-
-
-
-      <div class="skill">
-        <div class="skill-name">Virtualització i contenidors</div>
-        <div class="skill-bar">
-          <div class="skill-bar-fill" data-fill="45%"></div>
-        </div>
-        <button class="info-btn" data-title="Virtualització i contenidors"
-          data-text="Gestió de màquines virtuals amb VirtualBox, administració de contenidors amb docker (dockerfile i docker-compose)">Més
-          info</button>
-      </div>
-      <div class="skill">
-        <div class="skill-name">C# .NET</div>
-        <div class="skill-bar">
-          <div class="skill-bar-fill" data-fill="25%"></div>
-        </div>
-        <button class="info-btn" data-title="Programació amb csharp"
-          data-text="Programes de consola, programació orientada a objectes amb heréncia e interfícies, ús i creació d'apis rest amb documents json o connexió a base de dades amb entity framework, projectes web i webapp">Més
-          info</button>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Bases de dades SQL i NOSQL</div>
-        <div class="skill-bar">
-          <div class="skill-bar-fill" data-fill="25%"></div>
-        </div>
-        <button class="info-btn" data-title="Bases de dades"
-          data-text="Consultes a bases de dades fent ús de llenguatge SQL, més enfocat a mmsql i psql, consultes avançades a bases de dades no relacionals (Mongodb)">Més
-          info</button>
-      </div>
-
-
-
-
-
-    </div>
-  </section>
-
-  <section id="contacte">
-    <h2>Contacte & CV</h2>
-    <div class="contact">
-      <a class="btn" href="mailto:guissetisaac@gmail.com">Enviar Correu</a>
-      <a class="btn" href="https://isaacguisset.com/arxius/cv.html" target="_blank">Veure CV</a>
-      <br>
-      <a class="btn" href="https://github.com/isaacguisset">
-        <img src="https://cdn-icons-png.flaticon.com/256/25/25231.png" alt="Github" style="width:24px; height:24px;">
-      </a>
-
-      <a class="btn" href="https://es.linkedin.com/in/isaac-guisset-6a8b7736b">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png" alt="Linkedin"
-          style="width:24px; height:24px;">
-      </a>
-      <a class="btn" href="https://instagram.com/isaacguisset">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram"
-          style="width:24px; height:24px;">
-      </a>
-      <a class="btn" href="https://10fastfingers.com/user/4134151/">
-        <img src="https://cdn-icons-png.flaticon.com/512/6605/6605207.png" alt="10fastfingers"
-          style="width:24px; height:24px;">
-      </a>
-    </div>
-  </section>
-
-  <div id="info-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3 id="modal-title"></h3>
-      <p id="modal-text"></p>
-    </div>
-  </div>
-  <footer
-    style="background:#2a2a2a; text-align:center; padding:20px; margin-top:50px; color:#ccc; font-size:0.9rem; border-top: 1px solid rgba(155, 89, 182, 0.3);">
+  <!-- Footer -->
+  <footer style="text-align:center; padding:40px 20px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--color-text-muted);">
     <p>&copy; 2026 Isaac Guisset Sànchez · Tots els drets reservats</p>
-    <p>
-      <a href="mailto:guissetisaac@gmail.com" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Contacte</a> |
-      <a href="#top" style="color:#9b59b6; text-decoration:none; margin:0 8px;">Tornar amunt ↑</a>
-    </p>
+    <div style="margin-top: 15px; display:flex; gap: 20px; justify-content: center;">
+      <a href="https://github.com/isaacguisset" target="_blank">GitHub</a>
+      <a href="https://es.linkedin.com/in/isaac-guisset-6a8b7736b" target="_blank">LinkedIn</a>
+      <a href="mailto:guissetisaac@gmail.com">Contacte</a>
+    </div>
   </footer>
-  <script>
-    const fabCv = document.getElementById('fab-cv');
-    const cvModal = document.getElementById('cv-modal');
-    const closeCv = document.getElementById('close-cv');
-
-    fabCv.addEventListener('click', () => {
-      cvModal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    });
-    closeCv.addEventListener('click', () => {
-      cvModal.style.display = 'none';
-      document.body.style.overflow = '';
-    });
-    cvModal.addEventListener('click', (e) => {
-      if (e.target === cvModal) {
-        cvModal.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const fills = document.querySelectorAll(".skill-bar-fill");
-      fills.forEach(fill => {
-        const percent = fill.getAttribute("data-fill");
-        fill.style.width = percent;
-      });
-    });
-  </script>
 
   <script>
+    // Toggle Menu Mobile
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('nav-menu').classList.toggle('show');
+    });
+
+    // Time Greeting
     function updateGreeting() {
-      const now = new Date();
-      const hour = now.getHours();
-      const minute = now.getMinutes();
-      let greeting;
-
-      if (hour >= 19 && hour <= 23) {
-        greeting = "Bona nit";
-      } else if ((hour === 0 && minute >= 1) || (hour >= 1 && hour <= 4)) {
-        greeting = "Bona nit";
-      } else if (hour >= 5 && hour <= 12) {
-        greeting = "Bon dia";
-      } else if (hour >= 13 && hour <= 18) {
-        greeting = "Bona tarda";
-      } else {
-        greeting = "Hola!";
-      }
-
-      document.getElementById('greeting').textContent = greeting;
+      const h = new Date().getHours();
+      let g = "Hola!";
+      if (h >= 5 && h < 13) g = "Bon dia!";
+      else if (h >= 13 && h < 19) g = "Bona tarda!";
+      else g = "Bona nit!";
+      document.getElementById('greeting').textContent = g;
     }
-
-    function updateClock() {
-      const now = new Date();
-      const h = String(now.getHours()).padStart(2, '0');
-      const m = String(now.getMinutes()).padStart(2, '0');
-      const s = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById('time').textContent = `${h}:${m}:${s}`;
-    }
-
     updateGreeting();
-    updateClock();
-    setInterval(() => {
-      updateClock();
-      updateGreeting();
-    }, 1000);
 
-    // Slider
-    const sliderTrack = document.querySelector('.slider-track');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let index = 0;
-    const totalSlides = slides.length;
-    function updateSlider() {
-      sliderTrack.style.transform = `translateX(${-index * 100}%)`;
-    }
-    prevBtn.addEventListener('click', () => {
-      index = (index === 0) ? totalSlides - 1 : index - 1;
-      updateSlider();
-    });
-    nextBtn.addEventListener('click', () => {
-      index = (index === totalSlides - 1) ? 0 : index + 1;
-      updateSlider();
-    });
-
-    const modal = document.getElementById('info-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalText = document.getElementById('modal-text');
-    const closeBtn = modal.querySelector('.close');
-    document.querySelectorAll('.info-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modalTitle.textContent = btn.dataset.title;
-        modalText.textContent = btn.dataset.text;
-        modal.style.display = 'flex';
-      });
-    });
-    closeBtn.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', e => {
-      if (e.target === modal) modal.style.display = 'none';
-    });
-  </script>
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
-    });
-
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-      });
-    });
-  </script>
-  <script>
+    // Stack Track Generator
     const stackTechs = [
       { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-      { name: "Windows", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
-      { name: "Windows Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
-      { name: "Ubuntu Server", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" },
       { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-      { name: "Apache", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" },
       { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
-      { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-      { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-      { name: "Rsync", icon: "https://upload.wikimedia.org/wikipedia/en/thumb/1/11/Newrsynclogo.png/250px-Newrsynclogo.png" },
+      { name: ".NET", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
       { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-      { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
       { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-      { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-      { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-      { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
-      { name: "VirtualBox", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png" },
-      { name: "Wireshark", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
-      { name: "AWS", icon: "https://miro.medium.com/v2/resize:fit:1400/1*2lNGYaa8HhnVGpKy0RutFg.png" },
-
+      { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" }
     ];
 
-    const stackTrack = document.getElementById('stack-track');
+    const track = document.getElementById('stack-track');
     [...stackTechs, ...stackTechs].forEach(t => {
       const pill = document.createElement('div');
       pill.className = 'tech-pill';
-      pill.innerHTML = `<img src="${t.icon}" alt="${t.name}" onerror="this.style.display='none'"><span>${t.name}</span>`;
-      stackTrack.appendChild(pill);
+      pill.innerHTML = `<img src="${t.icon}" alt="${t.name}"><span>${t.name}</span>`;
+      track.appendChild(pill);
     });
   </script>
-
 </body>
-
 </html>
